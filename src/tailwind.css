@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  body {
+    @apply antialiased font-primary text-white bg-accent-2;
+  }
+  .custom-sb::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  .custom-sb::-webkit-scrollbar-thumb {
+    @apply bg-white rounded;
+  }
+  .custom-sb::-moz-scrollbar {
+    @apply w-1.5;
+  }
+  .custom-sb::-moz-scrollbar-thumb {
+    @apply bg-white rounded;
+  }
+}

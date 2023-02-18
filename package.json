@@ -1,0 +1,61 @@
+{
+  "name": "vite-fbr",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "yarn eslint --config ./.eslintrc.cjs ./src/**/*.{tsx,ts}",
+    "postinstall": "husky install",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "format": "prettier --config ./.prettierrc.cjs -w ./src/**/*.{tsx,ts,css}",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.7",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/uuid": "^9.0.0",
+    "clsx": "^1.2.1",
+    "htmr": "^1.0.2",
+    "jotai": "^1.11.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-router-dom": "^6.4.4",
+    "tailwind-merge": "^1.8.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@types/node": "^18.11.10",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.29.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.0",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,css,scss,md,html,json}": [
+      "prettier --config ./.prettierrc.cjs -w \"./**/*.{js,jsx,ts,tsx,css,scss,md,html,json}\""
+    ]
+  }
+}
