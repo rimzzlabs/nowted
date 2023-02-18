@@ -1,4 +1,6 @@
-import { Child } from '@/types/common'
+type Child = {
+  children?: React.ReactNode
+}
 
 import { Fragment, Suspense, lazy } from 'react'
 import { Navigate, Route, Routes as Router } from 'react-router-dom'
