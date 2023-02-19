@@ -1,14 +1,41 @@
-import { createNote } from '@/util/notes'
 import { useSetAtom } from 'jotai'
-import { AtomNotes } from './useNotes'
+import { Note, AtomNotes } from './useNotes'
 
 export const useMutateNote = () => {
   const setNotes = useSetAtom(AtomNotes)
 
-  const createNewNote = (folderId: string) => {
-    const note = createNote(folderId)
-    setNotes((prev) => [...prev, note])
+  const getModifiedNote = (noteId: string, notes: Note[], payload: Partial<Note>) => {
+    const targetNote = notes.find((n) => n.note_id === noteId)
+    if (!targetNote) return notes
+    const newNote: Note = {
+      ...targetNote,
+      ...payload
+    }
+
+    const sliced = notes.filter((n) => n.note_id !== noteId)
+
+    return [...sliced, newNote]
   }
 
-  return { createNewNote }
+  const updateTitle = (noteId: string, title: string) => {
+    setNotes((notes) => getModifiedNote(noteId, notes, { title }))
+  }
+
+  const updateContent = (noteId: string, content: string) => {
+    setNotes((notes) => getModifiedNote(noteId, notes, { content }))
+  }
+
+  const updateFavorite = (noteId: string, isFavorite: boolean) => {
+    setNotes((notes) => getModifiedNote(noteId, notes, { isFavorite }))
+  }
+
+  const updateArchive = (noteId: string, isArchived: boolean) => {
+    setNotes((notes) => getModifiedNote(noteId, notes, { isArchived }))
+  }
+
+  const updateTrash = (noteId: string, isTrashed: boolean) => {
+    setNotes((notes) => getModifiedNote(noteId, notes, { isTrashed }))
+  }
+
+  return { updateTitle, updateContent, updateFavorite, updateArchive, updateTrash }
 }

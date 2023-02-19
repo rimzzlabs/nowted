@@ -1,13 +1,11 @@
 import { useActiveNote } from '@/hooks/useActiveNote'
-import { useNotes } from '@/hooks/useNotes'
+import { useNote } from '@/hooks/useNote'
 import { clsxm } from '@/util/clsxm'
 import { NowtedHeader } from './NowtedHeader'
 
 export const Nowted = () => {
   const { noteId } = useActiveNote()
-  const { notes } = useNotes()
-
-  const note = notes.find((n) => n.note_id === noteId)
+  const note = useNote(noteId)
 
   if (!noteId || !note) return null
 

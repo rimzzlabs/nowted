@@ -1,11 +1,11 @@
 import { useActiveFolder } from '@/hooks/useActiveFolder'
-import { useMutateNote } from '@/hooks/useMutateNote'
+import { useMutateNotes } from '@/hooks/useMutateNotes'
 import { clsxm } from '@/util/clsxm'
 import { HiPlus } from 'react-icons/hi'
 
 export const SidebarNewNote = () => {
   const { folderId } = useActiveFolder()
-  const { createNewNote } = useMutateNote()
+  const { createNewNote } = useMutateNotes()
 
   const handleClick = () => {
     if (!folderId) return
