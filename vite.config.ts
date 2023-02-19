@@ -7,10 +7,8 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 const vendors = [
-  '@tiptap/core',
   '@tiptap/extension-code-block-lowlight',
   '@tiptap/extension-placeholder',
-  '@tiptap/pm',
   '@tiptap/react',
   '@tiptap/starter-kit',
   'highlight.js',
