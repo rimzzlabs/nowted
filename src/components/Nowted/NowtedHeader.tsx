@@ -2,6 +2,7 @@ import { useFolders } from '@/hooks/useFolders'
 import { formatDate } from '@/util/notes'
 import { useCallback, useMemo } from 'react'
 import { HiOutlineCalendar, HiOutlineDotsCircleHorizontal, HiOutlineFolder } from 'react-icons/hi'
+import { NowtedTitle } from './NowtedTitle'
 
 type TProps = {
   folderId: string
@@ -13,7 +14,7 @@ type TProps = {
 export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
   const { folders } = useFolders()
   const getFolder = useCallback(
-    () => folders.find((f) => f.folder_id === props.folderId),
+    () => folders.find((f) => f.folder_id === props.folderId) ?? null,
     [props.folderId, folders]
   )
 
@@ -21,8 +22,8 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
 
   return (
     <header>
-      <div className='flex items-center justify-between mb-[35px]'>
-        <h3 className='font-semibold text-[32px] truncate'>{props.title}</h3>
+      <div className='flex items-center mb-[35px]'>
+        <NowtedTitle noteId={props.noteId} title={props.title} />
 
         <button>
           <HiOutlineDotsCircleHorizontal className='w-[30px] h-[30px]' />
