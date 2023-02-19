@@ -1,5 +1,5 @@
 {
-  "name": "vite-fbr",
+  "name": "nowted",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,7 +22,6 @@
     "@tiptap/pm": "2.0.0-beta.218",
     "@tiptap/react": "2.0.0-beta.218",
     "@tiptap/starter-kit": "2.0.0-beta.218",
-    "@types/uuid": "^9.0.0",
     "clsx": "^1.2.1",
     "highlight.js": "^11.7.0",
     "htmr": "^1.0.2",
@@ -40,6 +39,7 @@
     "@types/node": "^18.11.10",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "@vitejs/plugin-react": "^2.2.0",
