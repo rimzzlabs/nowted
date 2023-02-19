@@ -1,9 +1,7 @@
 import { useActiveNote } from '@/hooks/useActiveNote'
 import { Note } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
-import { formatDate } from '@/util/notes'
-import htmr from 'htmr'
-
+import { formatDate, removeHTMLTag } from '@/util/notes'
 export const NoteListItem = (props: Note) => {
   const { noteId, updateNoteId } = useActiveNote()
 
@@ -24,7 +22,7 @@ export const NoteListItem = (props: Note) => {
 
       <div className='flex items-center select-none'>
         <span className='text-text-2 mr-2.5'>{formatDate(props.created_at)}</span>
-        <span className='truncate'>{htmr(props.content)}</span>
+        <span className='truncate'>{removeHTMLTag(props.content)}</span>
       </div>
     </div>
   )

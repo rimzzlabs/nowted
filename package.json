@@ -15,7 +15,12 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",
-    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@tiptap/core": "2.0.0-beta.218",
+    "@tiptap/extension-placeholder": "2.0.0-beta.218",
+    "@tiptap/pm": "2.0.0-beta.218",
+    "@tiptap/react": "2.0.0-beta.218",
+    "@tiptap/starter-kit": "2.0.0-beta.218",
     "@types/uuid": "^9.0.0",
     "clsx": "^1.2.1",
     "htmr": "^1.0.2",
