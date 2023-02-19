@@ -1,5 +1,6 @@
 import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { Folder } from '@/hooks/useFolders'
+import { useModalConfirm } from '@/hooks/useModalConfirm'
 import { useMutateFolder } from '@/hooks/useMutateFolder'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder, HiOutlineFolderOpen, HiOutlineTrash } from 'react-icons/hi'
@@ -7,13 +8,11 @@ import { HiOutlineFolder, HiOutlineFolderOpen, HiOutlineTrash } from 'react-icon
 export const SidebarFolderItem = (props: Folder) => {
   const { deleteFolder } = useMutateFolder()
   const { folderId, updateFolderId } = useActiveFolder()
+  const { openModal } = useModalConfirm()
   const name = props.name.slice(0, 24)
 
-  const handleDelete = (id: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation()
-    deleteFolder(id)
-  }
   const handleClick = (id: string) => () => updateFolderId(id)
+  const onConfirm = () => deleteFolder(props.folder_id)
 
   return (
     <button
@@ -31,7 +30,12 @@ export const SidebarFolderItem = (props: Folder) => {
       <span className='font-semibold truncate'>{name}</span>
 
       <span
-        onClick={handleDelete(props.folder_id)}
+        onClick={openModal({
+          description: `Are you sure you want to delete this folder?.
+          This will also delete all notes belonging to folder ${props.name}!`,
+          title: 'Delete Folder?',
+          onConfirm
+        })}
         className='hidden group-hover:block transition-all ml-auto'
       >
         <HiOutlineTrash className='w-5 h-5 text-red-500' />

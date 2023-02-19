@@ -10,7 +10,7 @@ export const NowtedTitle = (props: TProps) => {
   const { active, onClick, onChange, title, onBlur, onKeyDown } = useRenameNote(props)
 
   return (
-    <div className='w-full'>
+    <div className='w-11/12 mr-2.5'>
       {active && (
         <input
           type='text'
