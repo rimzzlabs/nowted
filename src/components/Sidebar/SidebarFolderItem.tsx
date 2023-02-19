@@ -9,7 +9,8 @@ export const SidebarFolderItem = (props: Folder) => {
   const { folderId, updateFolderId } = useActiveFolder()
   const name = props.name.slice(0, 24)
 
-  const handleDelete = (id: string) => () => {
+  const handleDelete = (id: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
     deleteFolder(id)
   }
   const handleClick = (id: string) => () => updateFolderId(id)
