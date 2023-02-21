@@ -4,7 +4,7 @@ type Child = {
 
 import { Fragment, Suspense, lazy } from 'react'
 import { Navigate, Route, Routes as Router } from 'react-router-dom'
-import { MainLayout } from './components/layouts'
+import { MainLayout } from '@/layouts'
 
 type FunComp = Record<string, { default: () => JSX.Element }>
 

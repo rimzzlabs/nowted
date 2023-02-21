@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import { ModalConfirm } from '../Modal'
-import { Sidebar } from '../Sidebar'
+import { ModalConfirm } from '../components/Modal'
+import { Sidebar } from '../components/Sidebar'
 
 export const MainLayout = () => {
   return (

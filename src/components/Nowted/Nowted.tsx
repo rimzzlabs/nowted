@@ -31,9 +31,9 @@ export const Nowted = (props: TProps) => {
     return (
       <div
         className={clsxm(
-          'w-[calc(100vw-300px)] h-screen bg-accent-1',
+          'w-[calc(100vw-300px)] h-screen',
           'flex flex-col items-center justify-center',
-          props?.folderId && 'w-[calc(100vw-650px)]'
+          props?.folderId && 'w-[calc(100vw-650px)] bg-accent-1'
         )}
       >
         {props?.folderId ? (
