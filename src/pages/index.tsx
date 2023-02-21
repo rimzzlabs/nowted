@@ -1,10 +1,14 @@
-import { NoteList } from '@/components/NoteList'
+import { RegularNote } from '@/components/Note'
 import { Nowted } from '@/components/Nowted'
+import { useActiveFolder } from '@/hooks/useActiveFolder'
+import { useMore } from '@/hooks/useMore'
 import { Transition } from '@headlessui/react'
 import { Fragment, useEffect, useState } from 'react'
 
 export default function HomePage() {
   const [show, setShow] = useState(false)
+  const { more } = useMore()
+  const { folderId } = useActiveFolder()
 
   useEffect(() => {
     const timeout = setTimeout(() => setShow(true), 300)
@@ -21,7 +25,7 @@ export default function HomePage() {
       enterTo='opacity-100 scale-100'
     >
       <div className='flex'>
-        <NoteList />
+        {!more && folderId && <RegularNote folderId={folderId} />}
         <Nowted />
       </div>
     </Transition>

@@ -1,44 +1,37 @@
-import { useActiveFolder } from '@/hooks/useActiveFolder'
-import { useNotes } from '@/hooks/useNotes'
+import { Note } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { NoteListItem } from './NoteListItem'
 import { NoteListTitle } from './NoteListTitle'
 
-export const NoteList = () => {
-  const { folderId } = useActiveFolder()
-  const { notes } = useNotes()
+type TProps = {
+  notes: Note[]
+  title: string
+  show: boolean
+  emptyText: string
+}
 
-  const filteredNotes = notes.filter(
-    (n) => n.folder_id === folderId && !n.isArchived && !n.isTrashed
-  )
-
-  if (!folderId) return null
-
+export const NoteList = (props: TProps) => {
   return (
     <Transition
       appear
-      show={!!folderId}
+      show={props.show}
       as={Fragment}
       enterFrom='opacity-0 -translate-x-6'
       enter='ease-out duration-300'
       enterTo='opacity-100 -translate-x-0'
     >
       <div className='w-[350px] pb-[23px] px-5 h-screen overflow-y-auto custom-sb'>
-        <NoteListTitle folderId={folderId} />
+        <NoteListTitle title={props.title} />
 
-        {filteredNotes.length === 0 && (
+        {props.notes.length === 0 && (
           <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
-            <p>
-              It appear you haven&apos;t create a note on this folder yet, why don&apos;t you create
-              one?
-            </p>
+            <p>{props.emptyText}</p>
           </div>
         )}
 
-        {filteredNotes.length > 0 &&
-          filteredNotes.map((n) => <NoteListItem key={n.note_id} {...n} />)}
+        {props.notes.length > 0 && props.notes.map((n) => <NoteListItem key={n.note_id} {...n} />)}
       </div>
     </Transition>
   )

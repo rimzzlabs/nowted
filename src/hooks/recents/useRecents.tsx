@@ -11,9 +11,9 @@ const DerivedAtomRecents = atom(
   (get) => {
     const notes = get(AtomNotes)
     const recents = get(AtomRecents)
-    // watch for deleted notes / folder
+    // watch for deleted notes / folder / archived notes
     const filtered = recents.filter((id) => {
-      return notes.some((n) => n.note_id === id)
+      return notes.some((n) => n.note_id === id && !n.isArchived && !n.isTrashed)
     })
     return filtered
   },
