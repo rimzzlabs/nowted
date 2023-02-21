@@ -4,6 +4,7 @@ type Child = {
 
 import { Fragment, Suspense, lazy } from 'react'
 import { Navigate, Route, Routes as Router } from 'react-router-dom'
+import { MainLayout } from './components/layouts'
 
 type FunComp = Record<string, { default: () => JSX.Element }>
 
@@ -39,11 +40,13 @@ export const Routes = () => {
     <App>
       <Suspense fallback={<Loading />}>
         <Router>
-          {routes.map(({ path, component: Component = Fragment }) => (
-            <Route key={path} path={path} element={<Component />} />
-          ))}
-          <Route path='*' element={<Navigate to='/404' />} />
-          <Route path='/404' element={<NotFound />} />
+          <Route key='layout' element={<MainLayout />}>
+            {routes.map(({ path, component: Component = Fragment }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+            <Route path='*' element={<Navigate to='/404' />} />
+            <Route path='/404' element={<NotFound />} />
+          </Route>
         </Router>
       </Suspense>
     </App>

@@ -1,16 +1,18 @@
-import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { useMutateNotes } from '@/hooks/useMutateNotes'
 import { clsxm } from '@/util/clsxm'
 import { HiPlus } from 'react-icons/hi'
+import { useParams } from 'react-router-dom'
 
 export const SidebarNewNote = () => {
-  const { folderId } = useActiveFolder()
+  const { folderId } = useParams()
   const { createNewNote } = useMutateNotes()
 
   const handleClick = () => {
     if (!folderId) return
     createNewNote(folderId)
   }
+
+  console.info(folderId, useParams())
 
   return (
     <div className='px-[20px]'>

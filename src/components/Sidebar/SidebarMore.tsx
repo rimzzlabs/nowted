@@ -1,18 +1,19 @@
-import { useMore } from '@/hooks/useMore'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineArchive, HiOutlineStar, HiOutlineTrash } from 'react-icons/hi'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 const moreMenus = [
-  { id: uuid(), type: 'favorites', name: 'Favorites', Icon: HiOutlineStar },
-  { id: uuid(), type: 'trash', name: 'Trash', Icon: HiOutlineTrash },
-  { id: uuid(), type: 'archived', name: 'Archived Notes', Icon: HiOutlineArchive }
+  { id: uuid(), path: '/favorites', name: 'Favorites', Icon: HiOutlineStar },
+  { id: uuid(), path: '/trash', name: 'Trash', Icon: HiOutlineTrash },
+  { id: uuid(), path: '/archived', name: 'Archived Notes', Icon: HiOutlineArchive }
 ] as const
 
 export const SidebarMore = () => {
-  const { more, updateMore } = useMore()
+  const loc = useLocation()
+  const nTo = useNavigate()
 
-  const handleClick = (type: 'archived' | 'trash' | 'favorites') => () => updateMore(type)
+  const handleClick = (url: string) => () => nTo(url)
 
   return (
     <div className='w-full'>
@@ -20,14 +21,14 @@ export const SidebarMore = () => {
 
       {moreMenus.map((menu) => (
         <button
-          onClick={handleClick(menu.type)}
+          onClick={handleClick(menu.path)}
           key={menu.id}
           className={clsxm(
             'w-full',
             'flex items-center',
             'px-[20px] h-10',
             'transition hover:bg-accent-2',
-            more === menu.type && 'bg-accent-3'
+            loc.pathname === menu.path && 'bg-accent-3'
           )}
         >
           <menu.Icon className='w-5 h-5 mr-[15px]' />

@@ -1,6 +1,4 @@
-import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { useActiveNote } from '@/hooks/useActiveNote'
-import { useMore } from '@/hooks/useMore'
 import { useNote } from '@/hooks/useNote'
 import { clsxm } from '@/util/clsxm'
 import { Transition } from '@headlessui/react'
@@ -9,9 +7,11 @@ import { HiOutlineDocumentText, HiOutlineFolder } from 'react-icons/hi'
 import { NowTedBody } from './NowtedBody'
 import { NowtedHeader } from './NowtedHeader'
 
-export const Nowted = () => {
-  const { folderId } = useActiveFolder()
-  const { more } = useMore()
+type TProps = {
+  folderId?: string
+}
+
+export const Nowted = (props: TProps) => {
   const { noteId } = useActiveNote()
   const note = useNote(noteId)
 
@@ -31,18 +31,18 @@ export const Nowted = () => {
     return (
       <div
         className={clsxm(
-          'w-[calc(100vw-300px)] h-screen',
+          'w-[calc(100vw-300px)] h-screen bg-accent-1',
           'flex flex-col items-center justify-center',
-          (more || folderId) && 'w-[calc(100vw-650px)] bg-accent-1'
+          props?.folderId && 'w-[calc(100vw-650px)]'
         )}
       >
-        {folderId ? (
+        {props?.folderId ? (
           <HiOutlineDocumentText className='w-20 h-20' />
         ) : (
           <HiOutlineFolder className='w-20 h-20' />
         )}
-        <p className='font-semibold text-[28px] mb-2'>{getTitle(!!folderId)}</p>
-        <p className='text-center max-w-sm'>{getDescription(!!folderId)}</p>
+        <p className='font-semibold text-[28px] mb-2'>{getTitle(!!props?.folderId)}</p>
+        <p className='text-center max-w-sm'>{getDescription(!!props?.folderId)}</p>
       </div>
     )
 
