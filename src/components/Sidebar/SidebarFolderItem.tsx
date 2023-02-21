@@ -9,7 +9,7 @@ export const SidebarFolderItem = (props: Folder) => {
   const { deleteFolder } = useMutateFolder()
   const { folderId, updateFolderId } = useActiveFolder()
   const { openModal } = useModalConfirm()
-  const name = props.name.slice(0, 24)
+  const name = props.name.length > 27 ? props.name.slice(0, 24) + '...' : props.name
 
   const handleClick = (id: string) => () => updateFolderId(id)
   const onConfirm = () => deleteFolder(props.folder_id)
