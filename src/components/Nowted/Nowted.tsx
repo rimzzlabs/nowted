@@ -63,6 +63,7 @@ export const Nowted = () => {
         )}
       >
         <NowtedHeader
+          isFavorite={note.isFavorite}
           created_at={note.created_at}
           folderId={note.folder_id}
           noteId={note.note_id}

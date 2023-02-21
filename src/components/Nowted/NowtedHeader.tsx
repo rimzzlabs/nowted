@@ -10,6 +10,7 @@ type TProps = {
   noteId: string
   title: string
   created_at: string
+  isFavorite: boolean
 }
 
 export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
@@ -26,7 +27,7 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
       <div className='flex items-center mb-[35px]'>
         <NowtedTitle noteId={props.noteId} title={props.title} />
 
-        <NowtedMoreButton noteId={props.noteId} />
+        <NowtedMoreButton noteId={props.noteId} isFavorite={props.isFavorite} />
       </div>
 
       <div className='flex flex-col w-full divide-y-2 divide-accent-4'>

@@ -1,4 +1,5 @@
 import { useModalConfirm } from '@/hooks/useModalConfirm'
+import { useMutateNote } from '@/hooks/useMutateNote'
 import { clsxm } from '@/util/clsxm'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
@@ -6,33 +7,43 @@ import {
   HiOutlineArchive,
   HiOutlineDotsCircleHorizontal,
   HiOutlineStar,
-  HiOutlineTrash
+  HiOutlineTrash,
+  HiStar
 } from 'react-icons/hi'
 import { v4 as uuid } from 'uuid'
 
 type TProps = {
   noteId: string
+  isFavorite: boolean
 }
 
 export const NowtedMoreButton = (props: TProps) => {
   const { openModal } = useModalConfirm()
+  const { updateFavorite } = useMutateNote()
+
+  const getText = (isBool: boolean, value: { if: string; else: string }) => {
+    if (isBool) return value.if
+    return value.else
+  }
 
   const menus = [
     {
       id: uuid(),
-      name: 'Mark as favorie',
-      Icon: HiOutlineStar,
+      name: props.isFavorite ? 'Unmark as favorite' : 'Favorite',
+      Icon: props.isFavorite ? HiStar : HiOutlineStar,
       onClick: openModal({
-        title: 'Mark as favorite?',
-        description:
-          'You will mark this note as your favorite.\nYou can find your archived note by clicking the Archive button on the left panel.',
+        title: getText(props.isFavorite, { if: 'Unmark as favorite?', else: 'Mark as favorite?' }),
+        description: getText(props.isFavorite, {
+          if: 'You will unmark this note as your favorite.',
+          else: 'You will mark this note as your favorite.\nYou can find your archived note by clicking the Archive button on the left panel.'
+        }),
         confirmBtnStyle: 'bg-blue-600 hover:bg-blue-700 text-white',
-        onConfirm: () => console.info(props.noteId)
+        onConfirm: () => updateFavorite(props.noteId, !props.isFavorite)
       })
     },
     {
       id: uuid(),
-      name: 'Archive Note',
+      name: 'Archive',
       Icon: HiOutlineArchive,
       onClick: openModal({
         title: 'Archive Note?',
@@ -87,7 +98,7 @@ export const NowtedMoreButton = (props: TProps) => {
                   clsxm(
                     'inline-flex items-center',
                     'text-left px-4',
-                    'h-10 w-44',
+                    'h-10 w-56',
                     active && 'bg-accent-4'
                   )
                 }
