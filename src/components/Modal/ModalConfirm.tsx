@@ -55,7 +55,7 @@ export const ModalConfirm = () => {
                 </div>
 
                 <div className='pt-4'>
-                  <p>{data?.description}</p>
+                  <p className='whitespace-pre-wrap'>{data?.description}</p>
 
                   <div
                     className={clsxm('mt-4 w-full', 'flex items-center justify-end', 'space-x-2.5')}
@@ -75,7 +75,8 @@ export const ModalConfirm = () => {
                       className={clsxm(
                         'inline-flex items-center',
                         'px-3.5 h-9 rounded-md transition',
-                        'bg-red-600 hover:bg-red-900'
+                        'bg-red-600 hover:bg-red-900',
+                        data?.confirmBtnStyle
                       )}
                     >
                       Confirm

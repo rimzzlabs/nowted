@@ -1,7 +1,8 @@
 import { useFolders } from '@/hooks/useFolders'
 import { formatDate } from '@/util/notes'
 import { useCallback, useMemo } from 'react'
-import { HiOutlineCalendar, HiOutlineDotsCircleHorizontal, HiOutlineFolder } from 'react-icons/hi'
+import { HiOutlineCalendar, HiOutlineFolder } from 'react-icons/hi'
+import { NowtedMoreButton } from './NowtedMoreButton'
 import { NowtedTitle } from './NowtedTitle'
 
 type TProps = {
@@ -25,9 +26,7 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
       <div className='flex items-center mb-[35px]'>
         <NowtedTitle noteId={props.noteId} title={props.title} />
 
-        <button>
-          <HiOutlineDotsCircleHorizontal className='w-[30px] h-[30px]' />
-        </button>
+        <NowtedMoreButton noteId={props.noteId} />
       </div>
 
       <div className='flex flex-col w-full divide-y-2 divide-accent-4'>

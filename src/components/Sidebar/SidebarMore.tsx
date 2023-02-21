@@ -2,9 +2,9 @@ import { HiOutlineArchive, HiOutlineStar, HiOutlineTrash } from 'react-icons/hi'
 import { v4 as uuid } from 'uuid'
 
 const moreMenus = [
-  { id: uuid(), path: '/fav', name: 'Favorites', Icon: HiOutlineStar },
-  { id: uuid(), path: '/trash', name: 'Trash', Icon: HiOutlineTrash },
-  { id: uuid(), path: '/archived', name: 'Archived Notes', Icon: HiOutlineArchive }
+  { id: uuid(), type: 'fav', name: 'Favorites', Icon: HiOutlineStar },
+  { id: uuid(), type: 'trash', name: 'Trash', Icon: HiOutlineTrash },
+  { id: uuid(), type: 'archived', name: 'Archived Notes', Icon: HiOutlineArchive }
 ]
 
 export const SidebarMore = () => {

@@ -5,6 +5,7 @@ type ModalConfirm = {
   title: string
   description: string
   onConfirm: () => void
+  confirmBtnStyle?: string
 }
 
 const AtomData = atom<ModalConfirm | null>(null)
