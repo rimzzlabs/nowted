@@ -10,7 +10,9 @@ export const NoteList = () => {
   const { folderId } = useActiveFolder()
   const { notes } = useNotes()
 
-  const filteredNotes = notes.filter((n) => n.folder_id === folderId)
+  const filteredNotes = notes.filter(
+    (n) => n.folder_id === folderId && !n.isArchived && !n.isTrashed
+  )
 
   if (!folderId) return null
 
