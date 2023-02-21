@@ -14,7 +14,7 @@ export const SidebarRecentItem = (props: TProps) => {
   const note = useNote(props.noteId)
 
   const getName = (name: string) => {
-    if (name.length > 27) return name.slice(0, 24) + '...'
+    if (name.length > 33) return name.slice(0, 30) + '...'
     return name
   }
 
