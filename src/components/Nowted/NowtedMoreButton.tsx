@@ -26,7 +26,7 @@ export const NowtedMoreButton = (props: TProps) => {
         title: 'Mark as favorite?',
         description:
           'You will mark this note as your favorite.\nYou can find your archived note by clicking the Archive button on the left panel.',
-        confirmBtnStyle: 'bg-blue-700 text-white',
+        confirmBtnStyle: 'bg-blue-600 hover:bg-blue-700 text-white',
         onConfirm: () => console.info(props.noteId)
       })
     },
