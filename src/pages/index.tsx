@@ -1,4 +1,4 @@
-import { RegularNote } from '@/components/Note'
+import { ArchivedNote, FavoritesNote, RegularNote, TrashedNote } from '@/components/Note'
 import { Nowted } from '@/components/Nowted'
 import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { useMore } from '@/hooks/useMore'
@@ -26,6 +26,9 @@ export default function HomePage() {
     >
       <div className='flex'>
         {!more && folderId && <RegularNote folderId={folderId} />}
+        {more && more === 'archived' && <ArchivedNote type={more} />}
+        {more && more === 'favorites' && <FavoritesNote type={more} />}
+        {more && more === 'trash' && <TrashedNote type={more} />}
         <Nowted />
       </div>
     </Transition>

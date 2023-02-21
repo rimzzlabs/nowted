@@ -20,11 +20,15 @@ const DerivedAtomRecents = atom(
   (get, set) => {
     const prevValue = get(AtomRecents)
     const nextActiveId = get(AtomActiveNote)
+    const notes = get(AtomNotes)
 
     // `AtomActiveNote` is null on first mount or deleted folder / note
     if (nextActiveId) {
       const prevHasNextValue = prevValue.some((n) => n === nextActiveId)
-      if (prevHasNextValue) return
+      const isArchivedOrDeleted = notes.find(
+        (n) => n.note_id === nextActiveId && (n.isArchived || n.isTrashed)
+      )
+      if (prevHasNextValue || isArchivedOrDeleted) return
       set(AtomRecents, [nextActiveId, ...prevValue.slice(0, 2)])
     }
   }

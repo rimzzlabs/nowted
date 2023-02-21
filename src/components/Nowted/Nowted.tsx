@@ -1,5 +1,6 @@
 import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { useActiveNote } from '@/hooks/useActiveNote'
+import { useMore } from '@/hooks/useMore'
 import { useNote } from '@/hooks/useNote'
 import { clsxm } from '@/util/clsxm'
 import { Transition } from '@headlessui/react'
@@ -10,6 +11,7 @@ import { NowtedHeader } from './NowtedHeader'
 
 export const Nowted = () => {
   const { folderId } = useActiveFolder()
+  const { more } = useMore()
   const { noteId } = useActiveNote()
   const note = useNote(noteId)
 
@@ -31,7 +33,7 @@ export const Nowted = () => {
         className={clsxm(
           'w-[calc(100vw-300px)] h-screen',
           'flex flex-col items-center justify-center',
-          folderId && 'w-[calc(100vw-650px)] bg-accent-1'
+          (more || folderId) && 'w-[calc(100vw-650px)] bg-accent-1'
         )}
       >
         {folderId ? (

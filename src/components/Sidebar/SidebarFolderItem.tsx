@@ -1,6 +1,7 @@
 import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { Folder } from '@/hooks/useFolders'
 import { useModalConfirm } from '@/hooks/useModalConfirm'
+import { useMore } from '@/hooks/useMore'
 import { useMutateFolder } from '@/hooks/useMutateFolder'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder, HiOutlineFolderOpen, HiOutlineTrash } from 'react-icons/hi'
@@ -9,9 +10,14 @@ export const SidebarFolderItem = (props: Folder) => {
   const { deleteFolder } = useMutateFolder()
   const { folderId, updateFolderId } = useActiveFolder()
   const { openModal } = useModalConfirm()
+  const { updateMore } = useMore()
+
   const name = props.name.length > 27 ? props.name.slice(0, 24) + '...' : props.name
 
-  const handleClick = (id: string) => () => updateFolderId(id)
+  const handleClick = (id: string) => () => {
+    updateMore(null)
+    updateFolderId(id)
+  }
   const onConfirm = () => deleteFolder(props.folder_id)
 
   return (
