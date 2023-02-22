@@ -1,5 +1,4 @@
 import { RegularNote } from '@/components/Note'
-import { Nowted } from '@/components/Nowted'
 import { useTimeoutFn } from '@/hooks/useTimeoutFn'
 import { Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
@@ -22,7 +21,7 @@ export default function FolderPage() {
     >
       <div className='flex'>
         <RegularNote folderId={folderId} />
-        <Nowted folderId={folderId} />
+        <h1>HEllo IM note</h1>
       </div>
     </Transition>
   )

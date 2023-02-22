@@ -4,24 +4,20 @@ import { useModalConfirm } from '@/hooks/useModalConfirm'
 import { useMutateFolder } from '@/hooks/useMutateFolder'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder, HiOutlineFolderOpen, HiOutlineTrash } from 'react-icons/hi'
-import { useNavigate } from 'react-router-dom'
+import { UnstyledLink } from '../UnstyledLink'
 
 export const SidebarFolderItem = (props: Folder) => {
   const { deleteFolder } = useMutateFolder()
   const { folderId } = useActiveFolder()
   const { openModal } = useModalConfirm()
-  const nTo = useNavigate()
 
   const name = props.name.length > 27 ? props.name.slice(0, 24) + '...' : props.name
 
-  const handleClick = (id: string) => () => {
-    nTo(`/folder/${id}`)
-  }
   const onConfirm = () => deleteFolder(props.folder_id)
 
   return (
-    <button
-      onClick={handleClick(props.folder_id)}
+    <UnstyledLink
+      to={'/folder/' + props.folder_id}
       className={clsxm(
         'group flex items-center',
         'w-full h-10',
@@ -45,6 +41,6 @@ export const SidebarFolderItem = (props: Folder) => {
       >
         <HiOutlineTrash className='w-5 h-5 text-red-500' />
       </span>
-    </button>
+    </UnstyledLink>
   )
 }

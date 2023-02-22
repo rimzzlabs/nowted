@@ -12,8 +12,6 @@ export const SidebarNewNote = () => {
     createNewNote(folderId)
   }
 
-  console.info(folderId, useParams())
-
   return (
     <div className='px-[20px]'>
       <button

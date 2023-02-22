@@ -1,4 +1,3 @@
-import { useActiveFolder } from '@/hooks/useActiveFolder'
 import { useActiveNote } from '@/hooks/useActiveNote'
 import { useNote } from '@/hooks/useNote'
 import { clsxm } from '@/util/clsxm'
@@ -10,7 +9,6 @@ type TProps = {
 
 export const SidebarRecentItem = (props: TProps) => {
   const { updateNoteId, noteId } = useActiveNote()
-  const { updateFolderId } = useActiveFolder()
   const note = useNote(props.noteId)
 
   const getName = (name: string) => {
@@ -18,8 +16,7 @@ export const SidebarRecentItem = (props: TProps) => {
     return name
   }
 
-  const handleClick = (noteId: string, folderId: string) => () => {
-    updateFolderId(folderId)
+  const handleClick = (noteId: string) => () => {
     updateNoteId(noteId)
   }
 
@@ -27,7 +24,7 @@ export const SidebarRecentItem = (props: TProps) => {
 
   return (
     <button
-      onClick={handleClick(note.note_id, note.folder_id)}
+      onClick={handleClick(note.note_id)}
       className={clsxm(
         'group flex items-center',
         'w-full h-10',
