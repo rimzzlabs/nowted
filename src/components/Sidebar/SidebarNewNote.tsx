@@ -1,4 +1,4 @@
-import { useMutateNotes } from '@/hooks/useMutateNotes'
+import { useMutateNotes } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { HiPlus } from 'react-icons/hi'
 import { useParams } from 'react-router-dom'

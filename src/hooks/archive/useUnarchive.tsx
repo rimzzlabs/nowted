@@ -1,5 +1,5 @@
 import { useAtomValue, useSetAtom } from 'jotai'
-import { useMutateNote } from '../useMutateNote'
+import { useMutateNote } from '@/hooks/note'
 import { AtomRemoveFromArchive, AtomSelectedArchivedNotes } from './atom'
 
 export const useUnarchive = () => {

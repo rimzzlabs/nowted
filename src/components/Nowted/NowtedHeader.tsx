@@ -30,17 +30,16 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
         <NowtedMoreButton noteId={props.noteId} />
       </div>
 
-      <div className='flex flex-col w-full divide-y-2 divide-accent-4'>
-        <div className='w-full h-[33px] flex py-1'>
-          <HiOutlineCalendar className='w-[18px] h-[18px] mr-5' />
-          <span className='w-[100px]'>Date</span>
-          <span>{formatDate(props.created_at)}</span>
-        </div>
-        <div className='w-full h-[33px] flex py-1'>
-          <HiOutlineFolder className='w-5 h-5 mr-5' />
-          <span className='w-[100px]'>Folder</span>
-          <span>{folder?.name ?? '-'}</span>
-        </div>
+      <div className='w-full flex py-2.5'>
+        <HiOutlineCalendar className='w-[18px] h-[18px] mr-5' />
+        <span className='w-[100px]'>Date</span>
+        <span>{formatDate(props.created_at)}</span>
+      </div>
+
+      <div className='w-full flex py-2.5 border-t border-t-accent-4'>
+        <HiOutlineFolder className='w-5 h-5 mr-5' />
+        <span className='w-[100px]'>Folder</span>
+        <span>{folder?.name ?? '-'}</span>
       </div>
     </header>
   )

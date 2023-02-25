@@ -1,8 +1,8 @@
 import { useAtomValue } from 'jotai'
-import { useMutateNote } from '@/hooks/useMutateNote'
-import { AtomNotes } from '@/hooks/useNotes'
+import { useMutateNote } from '@/hooks/note'
+import { AtomNotes } from '@/hooks/notes'
 import { NoteMenu } from '@/components/Nowted/NowtedMoreButton'
-import { useActiveNote } from '../useActiveNote'
+import { useActiveNote } from './useActiveNote'
 
 export const useMoreButton = () => {
   const notes = useAtomValue(AtomNotes)

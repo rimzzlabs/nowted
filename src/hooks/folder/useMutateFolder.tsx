@@ -1,10 +1,10 @@
 import { useSetAtom } from 'jotai'
 import { useNavigate, useParams } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import { useActiveNote } from '../useActiveNote'
-import { useNotes } from '../useNotes'
+import { useActiveNote } from '@/hooks/note'
+import { useNotes } from '@/hooks/notes'
 
-import { AtomFolders, Folder } from './useFolders'
+import { AtomFolders, Folder } from '@/hooks/folder'
 
 export const useMutateFolder = () => {
   const setFolders = useSetAtom(AtomFolders)

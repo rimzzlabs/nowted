@@ -1,4 +1,4 @@
-import { useNotes } from '@/hooks/useNotes'
+import { useNotes } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { NoteListWrapper } from '@/components/NoteList'
 import { NoteCard } from '@/components/Note'

@@ -1,4 +1,4 @@
-import { Note } from '@/hooks/useNotes'
+import { Note } from '@/hooks/notes'
 import { v4 as uuid } from 'uuid'
 
 const content = `<p>It's hard to believe that June is already over! Looking back on the month, there were a few highlights that stand out to me.</p>

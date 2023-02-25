@@ -1,4 +1,4 @@
-import { useMutateNote } from '@/hooks/useMutateNote'
+import { useMutateNote } from '@/hooks/note'
 import { useEditor } from '@tiptap/react'
 import { StarterKit } from '@tiptap/starter-kit'
 import { Placeholder } from '@tiptap/extension-placeholder'

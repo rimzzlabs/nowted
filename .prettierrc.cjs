@@ -9,13 +9,13 @@ module.exports = {
   endOfLine: 'auto',
   importOrder: [
     '^@/components(.*)$',
-    '^@/pages(.*)$',
-    '^@/hooks(.*)$',
-    '^@/lib(.*)$',
-    '^@/styles/(.*)$',
+    '^@/UI(.*)$',
+    '^@/services(.*)$',
+    '^@/libs(.*)$',
     '^@/(.*)$',
     '^[./]',
-    '^'
+    '^',
+    '^@/styles/(.*)$'
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true

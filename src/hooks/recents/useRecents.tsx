@@ -1,8 +1,8 @@
 import { atom, useAtom, useAtomValue } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { AtomActiveNote } from '@/hooks/useActiveNote'
+import { AtomActiveNote } from '@/hooks/note/useActiveNote'
 import { useEffect } from 'react'
-import { AtomNotes } from '../useNotes'
+import { AtomNotes } from '@/hooks/notes'
 
 export const RECENT_KEY = 'X-RECENT-NOTES'
 export const AtomRecents = atomWithStorage<string[]>(RECENT_KEY, [])

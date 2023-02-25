@@ -1,4 +1,4 @@
-import type { Note } from '@/hooks/useNotes'
+import type { Note } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { formatDate, removeHTMLTag } from '@/util/notes'
 

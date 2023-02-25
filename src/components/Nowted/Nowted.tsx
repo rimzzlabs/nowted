@@ -1,4 +1,4 @@
-import { Note } from '@/hooks/useNotes'
+import { Note } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { NowTedBody } from './NowtedBody'
 import { NowtedHeader } from './NowtedHeader'

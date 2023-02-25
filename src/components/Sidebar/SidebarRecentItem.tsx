@@ -1,5 +1,5 @@
-import { useActiveNote } from '@/hooks/useActiveNote'
-import { useNote } from '@/hooks/useNote'
+import { useActiveNote } from '@/hooks/note/useActiveNote'
+import { useNote } from '@/hooks/note'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { useNavigate, useParams } from 'react-router-dom'

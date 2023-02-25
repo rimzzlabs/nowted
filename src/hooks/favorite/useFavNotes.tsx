@@ -1,4 +1,4 @@
-import { useNotes } from '@/hooks/useNotes'
+import { useNotes } from '@/hooks/notes'
 
 export const useFavNotes = () => {
   const { notes } = useNotes()

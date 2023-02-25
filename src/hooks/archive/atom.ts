@@ -1,5 +1,5 @@
 import { atom } from 'jotai'
-import { Note } from '@/hooks/useNotes'
+import { Note } from '@/hooks/notes'
 
 export const AtomSelectedArchivedNotes = atom<Note[]>([])
 

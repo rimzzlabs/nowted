@@ -1,5 +1,5 @@
 import { atom } from 'jotai'
-import type { Note } from '@/hooks/useNotes'
+import type { Note } from '@/hooks/notes'
 
 export const AtomTrash = atom<Note[]>([])
 

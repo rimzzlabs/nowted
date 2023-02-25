@@ -1,4 +1,4 @@
-import { useRenameNote } from '@/hooks/useRenameNote'
+import { useRenameNote } from '@/hooks/note'
 import { clsxm } from '@/util/clsxm'
 
 type TProps = {

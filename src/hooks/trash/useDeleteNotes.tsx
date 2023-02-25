@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai'
-import { AtomNotes, Note } from '../useNotes'
+import { AtomNotes, Note } from '@/hooks/notes'
 import { AtomTrash } from './atom'
 
 export const useDeleteNotes = () => {

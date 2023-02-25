@@ -1,11 +1,11 @@
 import { NoteListWrapper } from '@/components/NoteList'
 import { useFolders } from '@/hooks/folder'
-import { useNotes } from '@/hooks/useNotes'
+import { useNotes } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { NoteCard } from '@/components/Note/NoteCard'
 import type { OnClickCard } from '@/components/Note/NoteCard'
 import { NoteTitle } from '@/components/Note/NoteTitle'
-import { useActiveNote } from '@/hooks/useActiveNote'
+import { useActiveNote } from '@/hooks/note'
 
 type TProps = {
   folderId: string

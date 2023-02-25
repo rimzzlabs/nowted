@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai'
-import { AtomNotes } from './useNotes'
+import { AtomNotes } from '@/hooks/notes'
 
 export const useNote = (noteId: null | string) => {
   const notes = useAtomValue(AtomNotes)
