@@ -9,6 +9,7 @@ import { defineConfig } from 'vite'
 const vendors = [
   '@tiptap/extension-code-block-lowlight',
   '@tiptap/extension-placeholder',
+  '@tiptap/extension-underline',
   '@tiptap/react',
   '@tiptap/starter-kit',
   'highlight.js',
