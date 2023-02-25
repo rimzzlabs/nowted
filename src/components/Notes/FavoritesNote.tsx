@@ -1,12 +1,19 @@
 import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
-import { NoteCard } from '@/components/Note/NoteCard'
+import { NoteCard, OnClickCard } from '@/components/Note/NoteCard'
 import { NoteListWrapper } from '@/components/NoteList/NoteListWrapper'
+import { useActiveNote } from '@/hooks/useActiveNote'
 
 export const FavoritesNote = () => {
   const { notes: n } = useNotes()
-
+  const { noteId, updateNoteId } = useActiveNote()
   const favNotes = n.filter((n) => n.isFavorite)
+
+  const getActiveNote = (id: string) => noteId === id
+
+  const onClickNoteCard: OnClickCard = (note) => {
+    return () => updateNoteId(note.note_id)
+  }
 
   return (
     <NoteListWrapper>
@@ -20,7 +27,15 @@ export const FavoritesNote = () => {
         </div>
       )}
 
-      {favNotes.length > 0 && favNotes.map((n) => <NoteCard key={n.note_id} {...n} />)}
+      {favNotes.length > 0 &&
+        favNotes.map((n) => (
+          <NoteCard
+            onClick={onClickNoteCard}
+            className={clsxm(getActiveNote(n.note_id))}
+            key={n.note_id}
+            {...n}
+          />
+        ))}
     </NoteListWrapper>
   )
 }
