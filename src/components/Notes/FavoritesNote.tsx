@@ -7,10 +7,9 @@ export const FavoritesNote = () => {
   const { notes: n } = useNotes()
 
   const favNotes = n.filter((n) => n.isFavorite)
-  const show = favNotes.length === 0 || favNotes.length > 0
 
   return (
-    <NoteListWrapper show={show}>
+    <NoteListWrapper>
       <div className='sticky top-0 flex items-center h-24 bg-accent-2'>
         <h2 className='font-semibold text-[22px]'>Favorites</h2>
       </div>

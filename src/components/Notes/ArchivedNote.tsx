@@ -7,10 +7,9 @@ export const ArchivedNote = () => {
   const { notes: n } = useNotes()
 
   const archivedNotes = n.filter((n) => n.isArchived)
-  const show = archivedNotes.length === 0 || archivedNotes.length > 0
 
   return (
-    <NoteListWrapper show={show}>
+    <NoteListWrapper>
       <div className='sticky top-0 flex items-center h-24 bg-accent-2'>
         <h2 className='font-semibold text-[22px]'>Archived</h2>
       </div>

@@ -26,7 +26,7 @@ export const RegularNote = (props: TProps) => {
   if (!folder) return null
 
   return (
-    <NoteListWrapper show={!!folder}>
+    <NoteListWrapper>
       <NoteTitle folderId={props.folderId} name={folder.name} />
 
       {notes.length === 0 && (
