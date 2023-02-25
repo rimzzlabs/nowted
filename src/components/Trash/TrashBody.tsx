@@ -1,6 +1,6 @@
 import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
-import { HiOutlineRefresh } from 'react-icons/hi'
+import { MdOutlineRestore } from 'react-icons/md'
 import { ButtonDelete } from './ButtonDelete'
 import { ButtonRestore } from './ButtonRestore'
 
@@ -20,7 +20,7 @@ export const TrashBody = () => {
         'bg-accent-1'
       )}
     >
-      <HiOutlineRefresh className='w-20 h-20' />
+      <MdOutlineRestore className='w-20 h-20' />
 
       <p className='font-semibold text-[28px] mb-2'>Select a note to restore</p>
       <p className='text-center max-w-sm'>
