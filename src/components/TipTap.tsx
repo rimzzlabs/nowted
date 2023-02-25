@@ -7,5 +7,5 @@ type TProps = {
 export const TipTap = (props: TProps) => {
   if (!props.editor) return null
 
-  return <EditorContent editor={props.editor} />
+  return <EditorContent className='py-4' editor={props.editor} />
 }

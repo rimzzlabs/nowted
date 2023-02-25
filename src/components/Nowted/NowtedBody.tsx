@@ -1,6 +1,7 @@
 import { useMutateNote } from '@/hooks/useMutateNote'
 import { useEditor } from '@tiptap/react'
 import { StarterKit } from '@tiptap/starter-kit'
+import { Placeholder } from '@tiptap/extension-placeholder'
 import { TipTap } from '@/components/TipTap'
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 
@@ -11,6 +12,7 @@ import html from 'highlight.js/lib/languages/xml'
 import tsx from 'highlight.js/lib/languages/typescript'
 import 'highlight.js/styles/atom-one-dark.css'
 import { lowlight } from 'lowlight'
+import { clsxm } from '@/util/clsxm'
 
 lowlight.registerLanguage('html', html)
 lowlight.registerLanguage('css', css)
@@ -30,7 +32,16 @@ export const NowTedBody = (props: TProps) => {
     content: props.content,
     extensions: [
       StarterKit.configure({ codeBlock: false }),
-      CodeBlockLowlight.configure({ lowlight })
+      CodeBlockLowlight.configure({ lowlight }),
+      Placeholder.configure({
+        placeholder: 'Write your notes here!',
+        emptyEditorClass: clsxm(
+          'before:content-[attr(data-placeholder)]',
+          'before:absolute before:top-0 before:left-0.5',
+          'before:text-white/50 before:font-normal',
+          'before:pointer-events-none'
+        )
+      })
     ],
     onUpdate({ editor }) {
       const content = editor.getHTML()
@@ -42,9 +53,5 @@ export const NowTedBody = (props: TProps) => {
     }
   })
 
-  return (
-    <div className='py-4'>
-      <TipTap editor={editor} />
-    </div>
-  )
+  return <TipTap editor={editor} />
 }
