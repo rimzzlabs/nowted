@@ -1,5 +1,4 @@
 import { RegularNote } from '@/components/Notes'
-import { Nowted } from '@/components/Nowted'
 import { AtomFolders } from '@/hooks/folder'
 import { useNote, useActiveNote } from '@/hooks/note'
 import { clsxm } from '@/util/clsxm'
@@ -7,6 +6,12 @@ import { useAtomValue } from 'jotai'
 import { useEffect } from 'react'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { Navigate, useParams } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
+import { EditorSpinner } from '@/components/EditorSpinner'
+
+const Nowted = lazy(() =>
+  import('@/components/Nowted').then((m) => ({ default: m.Nowted }))
+)
 
 export default function FolderPage() {
   const { folderId } = useParams()
@@ -24,7 +29,9 @@ export default function FolderPage() {
   return (
     <div className='flex'>
       <RegularNote folderId={folderId} />
-      {note && <Nowted key={noteId} {...note} />}
+      <Suspense fallback={<EditorSpinner />}>
+        {note && <Nowted key={noteId} {...note} />}
+      </Suspense>
 
       {!note && (
         <div
@@ -36,10 +43,12 @@ export default function FolderPage() {
         >
           <HiOutlineDocumentText className='w-20 h-20' />
 
-          <p className='font-semibold text-[28px] mb-2'>Select a note to view</p>
+          <p className='font-semibold text-[28px] mb-2'>
+            Select a note to view
+          </p>
           <p className='text-center max-w-sm'>
-            Choose a note from the list on the left to view its contents. Or create a new note to
-            add to your collection.
+            Choose a note from the list on the left to view its contents. Or
+            create a new note to add to your collection.
           </p>
         </div>
       )}
