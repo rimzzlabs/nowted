@@ -50,6 +50,7 @@ export const EditorToolbar = (props: TProps) => {
         >
           <AiOutlineBold className='w-5 h-5' />
         </button>
+
         <button
           onClick={onClickItalic}
           className={clsxm(
@@ -60,6 +61,7 @@ export const EditorToolbar = (props: TProps) => {
         >
           <AiOutlineItalic className='w-5 h-5' />
         </button>
+
         <button
           onClick={onClickUnderline}
           className={clsxm(
