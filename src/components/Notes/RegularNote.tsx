@@ -14,10 +14,11 @@ type TProps = {
 export const RegularNote = (props: TProps) => {
   const { notes: n } = useNotes()
   const { folders } = useFolders()
-  const { updateNoteId } = useActiveNote()
+  const { updateNoteId, noteId } = useActiveNote()
 
   const notes = n.filter((n) => n.folder_id === props.folderId && !n.isArchived && !n.isTrashed)
   const folder = folders.find((f) => f.folder_id === props.folderId)
+  const getActiveNote = (id: string) => noteId === id
 
   const onClickNoteCard: OnClickCard = (note) => {
     return () => updateNoteId(note.note_id)
@@ -36,7 +37,14 @@ export const RegularNote = (props: TProps) => {
       )}
 
       {notes.length > 0 &&
-        notes.map((n) => <NoteCard onClick={onClickNoteCard} key={n.note_id} {...n} />)}
+        notes.map((n) => (
+          <NoteCard
+            onClick={onClickNoteCard}
+            className={clsxm(getActiveNote(n.note_id) && 'bg-accent-4')}
+            key={n.note_id}
+            {...n}
+          />
+        ))}
     </NoteListWrapper>
   )
 }
