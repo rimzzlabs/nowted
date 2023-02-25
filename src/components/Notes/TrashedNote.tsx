@@ -2,9 +2,11 @@ import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { NoteListWrapper } from '@/components/NoteList'
 import { NoteCard } from '@/components/Note'
+import { useTrash } from '@/hooks/trash/useTrash'
 
 export const TrashedNote = () => {
   const { notes: n } = useNotes()
+  const { onClickNoteCard, selectedHasNote } = useTrash()
 
   const trashedNotes = n.filter((n) => n.isTrashed)
 
@@ -20,7 +22,15 @@ export const TrashedNote = () => {
         </div>
       )}
 
-      {trashedNotes.length > 0 && trashedNotes.map((n) => <NoteCard key={n.note_id} {...n} />)}
+      {trashedNotes.length > 0 &&
+        trashedNotes.map((n) => (
+          <NoteCard
+            key={n.note_id}
+            onClick={onClickNoteCard}
+            className={clsxm(selectedHasNote(n.note_id) && 'bg-accent-4')}
+            {...n}
+          />
+        ))}
     </NoteListWrapper>
   )
 }
