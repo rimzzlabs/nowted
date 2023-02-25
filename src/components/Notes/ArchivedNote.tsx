@@ -17,7 +17,13 @@ export const ArchivedNote = () => {
       </div>
 
       {archivedNotes.length === 0 && (
-        <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
+        <div
+          className={clsxm(
+            'flex items-center justify-center',
+            'w-full h-72',
+            'text-center'
+          )}
+        >
           <p>When you archive your notes, it will be visible here!</p>
         </div>
       )}

@@ -4,7 +4,11 @@ import { Note, AtomNotes } from '@/hooks/notes'
 export const useMutateNote = () => {
   const setNotes = useSetAtom(AtomNotes)
 
-  const getModifiedNote = (noteId: string, notes: Note[], payload: Partial<Note>) => {
+  const getModifiedNote = (
+    noteId: string,
+    notes: Note[],
+    payload: Partial<Note>
+  ) => {
     const targetNote = notes.find((n) => n.note_id === noteId)
     if (!targetNote) return notes
     const newNote: Note = {
@@ -30,14 +34,26 @@ export const useMutateNote = () => {
   }
 
   const updateArchive = (noteId: string, isArchived: boolean) => {
-    setNotes((notes) => getModifiedNote(noteId, notes, { isArchived, isFavorite: false }))
+    setNotes((notes) =>
+      getModifiedNote(noteId, notes, { isArchived, isFavorite: false })
+    )
   }
 
   const updateTrash = (noteId: string, isTrashed: boolean) => {
     setNotes((notes) =>
-      getModifiedNote(noteId, notes, { isTrashed, isFavorite: false, isArchived: false })
+      getModifiedNote(noteId, notes, {
+        isTrashed,
+        isFavorite: false,
+        isArchived: false
+      })
     )
   }
 
-  return { updateTitle, updateContent, updateFavorite, updateArchive, updateTrash }
+  return {
+    updateTitle,
+    updateContent,
+    updateFavorite,
+    updateArchive,
+    updateTrash
+  }
 }

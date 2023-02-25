@@ -16,7 +16,8 @@ export const ArchivedBody = () => {
 
       <p className='font-semibold text-[28px] mb-2'>Restore Notes</p>
       <p className='text-center max-w-sm mb-2'>
-        Select notes to restore from archived. Then you can access the note again.
+        Select notes to restore from archived. Then you can access the note
+        again.
       </p>
 
       <ButtonUnarchive />

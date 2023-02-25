@@ -16,7 +16,9 @@ export const RegularNote = (props: TProps) => {
   const { folders } = useFolders()
   const { updateNoteId, noteId } = useActiveNote()
 
-  const notes = n.filter((n) => n.folder_id === props.folderId && !n.isArchived && !n.isTrashed)
+  const notes = n.filter(
+    (n) => n.folder_id === props.folderId && !n.isArchived && !n.isTrashed
+  )
   const folder = folders.find((f) => f.folder_id === props.folderId)
   const getActiveNote = (id: string) => noteId === id
 
@@ -31,7 +33,13 @@ export const RegularNote = (props: TProps) => {
       <NoteTitle folderId={props.folderId} name={folder.name} />
 
       {notes.length === 0 && (
-        <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
+        <div
+          className={clsxm(
+            'flex items-center justify-center',
+            'w-full h-72',
+            'text-center'
+          )}
+        >
           <p>You haven&apos;t create a note on this folder</p>
         </div>
       )}

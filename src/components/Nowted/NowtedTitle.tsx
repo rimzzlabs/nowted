@@ -7,7 +7,8 @@ type TProps = {
 }
 
 export const NowtedTitle = (props: TProps) => {
-  const { active, onClick, onChange, title, onBlur, onKeyDown } = useRenameNote(props)
+  const { active, onClick, onChange, title, onBlur, onKeyDown } =
+    useRenameNote(props)
 
   return (
     <div className='w-11/12 mr-2.5'>

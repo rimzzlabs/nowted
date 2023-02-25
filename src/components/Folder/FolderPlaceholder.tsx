@@ -16,7 +16,8 @@ export const FolderPlaceholder = (props: { className?: string }) => {
 
       <p className='font-semibold text-[28px] mb-2'>Select a folder to start</p>
       <p className='text-center max-w-sm'>
-        Choose a folder from the sidebar to start. Or create a new folder to add to your collection.
+        Choose a folder from the sidebar to start. Or create a new folder to add
+        to your collection.
       </p>
     </div>
   )

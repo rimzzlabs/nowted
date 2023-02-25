@@ -28,7 +28,9 @@ export const NowtedMoreButton = (props: TProps) => {
   const menus: NoteMenu[] = [
     {
       id: uuid(),
-      name: isBool(props.noteId, 'isFavorite') ? 'Remove from favorites' : 'Add to favorites',
+      name: isBool(props.noteId, 'isFavorite')
+        ? 'Remove from favorites'
+        : 'Add to favorites',
       type: 'fav',
       Icon: HiOutlineStar
     },
@@ -71,7 +73,13 @@ export const NowtedMoreButton = (props: TProps) => {
           )}
         >
           {menus.map((menu) => {
-            return <NowtedMoreButtonItem key={menu.id} noteId={props.noteId} {...menu} />
+            return (
+              <NowtedMoreButtonItem
+                key={menu.id}
+                noteId={props.noteId}
+                {...menu}
+              />
+            )
           })}
         </Menu.Items>
       </Transition>

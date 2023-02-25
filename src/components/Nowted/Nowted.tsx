@@ -7,7 +7,11 @@ import { NowtedHeader } from './NowtedHeader'
 
 export const Nowted = (note: Note) => {
   const { updateContent } = useMutateNote()
-  const editor = useNowtedEditor({ content: note.content, noteId: note.note_id, updateContent })
+  const editor = useNowtedEditor({
+    content: note.content,
+    noteId: note.note_id,
+    updateContent
+  })
 
   return (
     <div

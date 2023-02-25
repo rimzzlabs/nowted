@@ -50,7 +50,8 @@ export const NowtedMoreButtonItem = (props: TProps) => {
         title: text.title,
         description: text.description,
         onConfirm: () => fns[props.type](props.noteId),
-        confirmBtnStyle: props.type === 'fav' ? 'bg-blue-600 hover:bg-blue-700' : undefined
+        confirmBtnStyle:
+          props.type === 'fav' ? 'bg-blue-600 hover:bg-blue-700' : undefined
       })}
       className={({ active }) =>
         clsxm(

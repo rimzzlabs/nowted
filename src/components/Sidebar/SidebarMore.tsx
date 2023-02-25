@@ -6,7 +6,12 @@ import { v4 as uuid } from 'uuid'
 const moreMenus = [
   { id: uuid(), path: '/favorites', name: 'Favorites', Icon: HiOutlineStar },
   { id: uuid(), path: '/trash', name: 'Trash', Icon: HiOutlineTrash },
-  { id: uuid(), path: '/archived', name: 'Archived Notes', Icon: HiOutlineArchive }
+  {
+    id: uuid(),
+    path: '/archived',
+    name: 'Archived Notes',
+    Icon: HiOutlineArchive
+  }
 ] as const
 
 export const SidebarMore = () => {

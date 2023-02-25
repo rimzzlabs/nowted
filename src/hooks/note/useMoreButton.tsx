@@ -32,7 +32,10 @@ export const useMoreButton = () => {
     updateNoteId(null)
   }
 
-  const isBool = (noteId: string, key: 'isArchived' | 'isTrashed' | 'isFavorite') => {
+  const isBool = (
+    noteId: string,
+    key: 'isArchived' | 'isTrashed' | 'isFavorite'
+  ) => {
     const note = notes.find((n) => n.note_id === noteId)
     if (!note) return false
     return note[key]
@@ -42,7 +45,10 @@ export const useMoreButton = () => {
     if (type === 'archive') {
       const isArchived = isBool(noteId, 'isArchived')
       if (isArchived)
-        return { title: 'Unarchive note?', description: 'This will unarchive note, you sure?.' }
+        return {
+          title: 'Unarchive note?',
+          description: 'This will unarchive note, you sure?.'
+        }
 
       return {
         title: 'Archice note?',
@@ -54,7 +60,10 @@ export const useMoreButton = () => {
     if (type === 'delete') {
       const isTrashed = isBool(noteId, 'isTrashed')
       if (isTrashed)
-        return { title: 'Restore note?', description: 'This note will be restored, you sure?.' }
+        return {
+          title: 'Restore note?',
+          description: 'This note will be restored, you sure?.'
+        }
 
       return {
         title: 'Delete note?',
@@ -66,7 +75,8 @@ export const useMoreButton = () => {
     if (isFavorite) {
       return {
         title: 'Remove from favorites?',
-        description: 'This note will be removed from your favorite notes, you sure?.'
+        description:
+          'This note will be removed from your favorite notes, you sure?.'
       }
     }
 

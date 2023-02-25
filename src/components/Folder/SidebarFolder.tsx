@@ -19,7 +19,9 @@ export const SidebarFolder = () => {
 
       {folders.length === 0 && !active && (
         <div className='flex items-center justify-center w-full h-10'>
-          <p className='text-xs font-medium'>Folders are empty, create one to start!</p>
+          <p className='text-xs font-medium'>
+            Folders are empty, create one to start!
+          </p>
         </div>
       )}
 

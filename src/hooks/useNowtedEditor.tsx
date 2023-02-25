@@ -47,7 +47,10 @@ export const useNowtedEditor = (props: TProps) => {
       props.updateContent(props.noteId, content)
     },
     editorProps: {
-      attributes: { class: 'outline-none prose prose-invert max-w-full', spellCheck: 'false' }
+      attributes: {
+        class: 'outline-none prose prose-invert max-w-full',
+        spellCheck: 'false'
+      }
     },
     onCreate({ editor }) {
       editor.commands.setContent(props.content)

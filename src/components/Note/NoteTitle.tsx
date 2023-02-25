@@ -7,7 +7,8 @@ type TProps = {
 }
 
 export const NoteTitle = (props: TProps) => {
-  const { active, onBlur, onChange, onClick, onKeyDown, title } = useRenameNote(props)
+  const { active, onBlur, onChange, onClick, onKeyDown, title } =
+    useRenameNote(props)
 
   return (
     <div className='sticky top-0 flex items-center h-24 bg-accent-2'>
