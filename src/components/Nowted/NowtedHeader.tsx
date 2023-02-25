@@ -1,7 +1,9 @@
 import { useFolders } from '@/hooks/folder'
 import { formatDate } from '@/util/notes'
+import { Editor } from '@tiptap/react'
 import { useCallback, useMemo } from 'react'
 import { HiOutlineCalendar, HiOutlineFolder } from 'react-icons/hi'
+import { EditorToolbar } from './EditorToolbar'
 import { NowtedMoreButton } from './NowtedMoreButton'
 import { NowtedTitle } from './NowtedTitle'
 
@@ -11,6 +13,7 @@ type TProps = {
   title: string
   created_at: string
   isFavorite: boolean
+  editor: Editor | null
 }
 
 export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
@@ -30,17 +33,19 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
         <NowtedMoreButton noteId={props.noteId} />
       </div>
 
-      <div className='w-full flex py-2.5'>
+      <div className='w-full flex py-3'>
         <HiOutlineCalendar className='w-[18px] h-[18px] mr-5' />
         <span className='w-[100px]'>Date</span>
         <span>{formatDate(props.created_at)}</span>
       </div>
 
-      <div className='w-full flex py-2.5 border-t border-t-accent-4'>
+      <div className='w-full flex py-3 border-t border-t-accent-4'>
         <HiOutlineFolder className='w-5 h-5 mr-5' />
         <span className='w-[100px]'>Folder</span>
         <span>{folder?.name ?? '-'}</span>
       </div>
+
+      <EditorToolbar editor={props.editor} />
     </header>
   )
 }

@@ -6,6 +6,7 @@ specifiers:
   '@tiptap/core': 2.0.0-beta.218
   '@tiptap/extension-code-block-lowlight': 2.0.0-beta.218
   '@tiptap/extension-placeholder': 2.0.0-beta.218
+  '@tiptap/extension-underline': 2.0.0-beta.218
   '@tiptap/pm': 2.0.0-beta.218
   '@tiptap/react': 2.0.0-beta.218
   '@tiptap/starter-kit': 2.0.0-beta.218
@@ -47,6 +48,7 @@ dependencies:
   '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
   '@tiptap/extension-code-block-lowlight': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
   '@tiptap/extension-placeholder': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
+  '@tiptap/extension-underline': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
   '@tiptap/pm': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
   '@tiptap/react': 2.0.0-beta.218_ynkdswu7kzhcpt3m24myhvxkoy
   '@tiptap/starter-kit': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
@@ -898,6 +900,14 @@ packages:
 
   /@tiptap/extension-text/2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4:
     resolution: {integrity: sha512-Z14dRRIjQwPGJD3+joD3nEs6NcQUORuPXa2BDWsFcAb6R+yPz7j9Wpn4nkcWCw2CIqnMm17ERs+KSSvKvzWY6Q==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.209
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
+    dev: false
+
+  /@tiptap/extension-underline/2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4:
+    resolution: {integrity: sha512-5XFRS0SeHVyC9iCLkpB4O2yjb25VPzK/J2bjgZZxOWBWSTMdnsd5KiYKynOceuOzE4rXOC5Wx6mcWXno/W6Xxw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.209
     dependencies:

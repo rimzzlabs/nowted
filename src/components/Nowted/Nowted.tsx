@@ -1,9 +1,14 @@
+import { useMutateNote } from '@/hooks/note'
 import { Note } from '@/hooks/notes'
+import { useNowtedEditor } from '@/hooks/useNowtedEditor'
 import { clsxm } from '@/util/clsxm'
-import { NowTedBody } from './NowtedBody'
+import { TipTap } from '@/components/TipTap'
 import { NowtedHeader } from './NowtedHeader'
 
 export const Nowted = (note: Note) => {
+  const { updateContent } = useMutateNote()
+  const editor = useNowtedEditor({ content: note.content, noteId: note.note_id, updateContent })
+
   return (
     <div
       className={clsxm(
@@ -20,9 +25,10 @@ export const Nowted = (note: Note) => {
         folderId={note.folder_id}
         noteId={note.note_id}
         title={note.title}
+        editor={editor}
       />
 
-      <NowTedBody key={note.note_id} noteId={note.note_id} content={note.content} />
+      <TipTap editor={editor} />
     </div>
   )
 }
