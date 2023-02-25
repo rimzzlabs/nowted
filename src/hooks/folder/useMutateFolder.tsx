@@ -29,7 +29,10 @@ export const useMutateFolder = () => {
 
   const createFolder = (name: string) => {
     const folder: Folder = { created_at: new Date().toISOString(), folder_id: uuid(), name }
-    setFolders((prev) => [...prev, folder])
+    setFolders((prev) => {
+      if (prev.length === 0) nTo(`/folder/${folder.folder_id}`)
+      return [...prev, folder]
+    })
   }
 
   const renameFolder = (folderId: string, name: string) => {

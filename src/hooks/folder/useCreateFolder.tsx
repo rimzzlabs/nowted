@@ -30,6 +30,7 @@ export const useCreateFolder = () => {
     }
   }
   const onBlur = () => {
+    if (name !== '') createFolder(name)
     resetState()
   }
 

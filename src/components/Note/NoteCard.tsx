@@ -2,10 +2,10 @@ import type { Note } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { formatDate, removeHTMLTag } from '@/util/notes'
 
-type OnClick = (n: Note) => () => void | ((n: Note) => () => Promise<void>)
+export type OnClickCard = (n: Note) => () => void | ((n: Note) => () => Promise<void>)
 
 type TProps = {
-  onClick?: OnClick
+  onClick?: OnClickCard
   className?: string
 } & Note
 

@@ -2,6 +2,7 @@ import { useActiveNote } from '@/hooks/useActiveNote'
 import { useNote } from '@/hooks/useNote'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineDocumentText } from 'react-icons/hi'
+import { useNavigate, useParams } from 'react-router-dom'
 
 type TProps = {
   noteId: string
@@ -10,6 +11,8 @@ type TProps = {
 export const SidebarRecentItem = (props: TProps) => {
   const { updateNoteId, noteId } = useActiveNote()
   const note = useNote(props.noteId)
+  const param = useParams()
+  const nTo = useNavigate()
 
   const getName = (name: string) => {
     if (name.length > 30) return name.slice(0, 27) + '...'
@@ -18,6 +21,7 @@ export const SidebarRecentItem = (props: TProps) => {
 
   const handleClick = (noteId: string) => () => {
     updateNoteId(noteId)
+    if (!param.folderId) nTo(`/folder/${note?.folder_id}`)
   }
 
   if (!note) return null

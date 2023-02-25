@@ -1,12 +1,13 @@
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder } from 'react-icons/hi'
 
-export const FolderPlaceholder = () => {
+export const FolderPlaceholder = (props: { className?: string }) => {
   return (
     <div
       className={clsxm(
         'w-[calc(100vw-300px)] h-screen',
-        'flex flex-col items-center justify-center'
+        'flex flex-col items-center justify-center',
+        props.className
       )}
     >
       <HiOutlineFolder className='w-20 h-20' />

@@ -3,7 +3,9 @@ import { useFolders } from '@/hooks/folder'
 import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { NoteCard } from '@/components/Note/NoteCard'
+import type { OnClickCard } from '@/components/Note/NoteCard'
 import { NoteTitle } from '@/components/Note/NoteTitle'
+import { useActiveNote } from '@/hooks/useActiveNote'
 
 type TProps = {
   folderId: string
@@ -12,9 +14,14 @@ type TProps = {
 export const RegularNote = (props: TProps) => {
   const { notes: n } = useNotes()
   const { folders } = useFolders()
+  const { updateNoteId } = useActiveNote()
 
   const notes = n.filter((n) => n.folder_id === props.folderId && !n.isArchived && !n.isTrashed)
   const folder = folders.find((f) => f.folder_id === props.folderId)
+
+  const onClickNoteCard: OnClickCard = (note) => {
+    return () => updateNoteId(note.note_id)
+  }
 
   if (!folder) return null
 
@@ -28,7 +35,8 @@ export const RegularNote = (props: TProps) => {
         </div>
       )}
 
-      {notes.length > 0 && notes.map((n) => <NoteCard key={n.note_id} {...n} />)}
+      {notes.length > 0 &&
+        notes.map((n) => <NoteCard onClick={onClickNoteCard} key={n.note_id} {...n} />)}
     </NoteListWrapper>
   )
 }
