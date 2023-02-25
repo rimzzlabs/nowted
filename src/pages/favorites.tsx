@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className='flex'>
       <FavoritesNote />
-      {note && <Nowted {...note} />}
+      {note && <Nowted key={noteId} {...note} />}
 
       {!note && (
         <div

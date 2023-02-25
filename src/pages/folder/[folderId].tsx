@@ -24,7 +24,7 @@ export default function FolderPage() {
   return (
     <div className='flex'>
       <RegularNote folderId={folderId} />
-      {note && <Nowted {...note} />}
+      {note && <Nowted key={noteId} {...note} />}
 
       {!note && (
         <div
