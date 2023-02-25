@@ -1,16 +1,9 @@
-import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { MdOutlineRestore } from 'react-icons/md'
 import { ButtonDelete } from './ButtonDelete'
 import { ButtonRestore } from './ButtonRestore'
 
 export const TrashBody = () => {
-  const { notes: n } = useNotes()
-
-  const trashedNotes = n.filter((n) => n.isTrashed)
-
-  if (trashedNotes.length === 0) return null
-
   return (
     <div
       className={clsxm(

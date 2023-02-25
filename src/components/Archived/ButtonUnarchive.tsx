@@ -1,17 +1,17 @@
-import { AtomTrash, useRestoreNotes } from '@/hooks/trash'
+import { AtomSelectedArchivedNotes, useUnarchive } from '@/hooks/archive'
 import { useModalConfirm } from '@/hooks/useModalConfirm'
 import { clsxm } from '@/util/clsxm'
 import { useAtomValue } from 'jotai'
 
-export const ButtonRestore = () => {
-  const selectedNotes = useAtomValue(AtomTrash)
-  const { restoreNotes } = useRestoreNotes()
+export const ButtonUnarchive = () => {
+  const selectedNotes = useAtomValue(AtomSelectedArchivedNotes)
+  const { unarchiveNotes } = useUnarchive()
   const { openModal } = useModalConfirm()
 
   const onClick = openModal({
     description: `You will restore ${selectedNotes.length} notes, after this, you can access the note again on it's corresponding folder.`,
     title: 'Restore notes?',
-    onConfirm: restoreNotes,
+    onConfirm: unarchiveNotes,
     confirmBtnStyle: 'bg-blue-700 text-white'
   })
 
@@ -22,7 +22,7 @@ export const ButtonRestore = () => {
       className={clsxm(
         'disabled:opacity-50 disabled:cursor-not-allowed',
         'inline-flex items-center',
-        'h-9 px-4 rounded mr-4 transition',
+        'h-9 px-4 rounded transition',
         'bg-primary text-white'
       )}
     >

@@ -34,7 +34,7 @@ export const SidebarRecentItem = (props: TProps) => {
         'w-full h-10',
         'px-[20px] transition',
         'hover:bg-accent-2',
-        noteId === props.noteId && 'bg-accent-3'
+        noteId === props.noteId && 'bg-primary text-white'
       )}
     >
       <HiOutlineDocumentText className='w-5 h-5 mr-[15px]' />

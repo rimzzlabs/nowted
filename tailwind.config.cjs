@@ -21,7 +21,8 @@ module.exports = {
         text: {
           1: '#FFF',
           2: '#a7a7a7'
-        }
+        },
+        primary: '#312EB5'
       }
     }
   },

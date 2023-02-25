@@ -2,9 +2,11 @@ import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { NoteCard } from '@/components/Note/NoteCard'
 import { NoteListWrapper } from '@/components/NoteList/NoteListWrapper'
+import { useArchive } from '@/hooks/archive'
 
 export const ArchivedNote = () => {
   const { notes: n } = useNotes()
+  const { onClickNoteCard, selectedHasNote } = useArchive()
 
   const archivedNotes = n.filter((n) => n.isArchived)
 
@@ -20,7 +22,15 @@ export const ArchivedNote = () => {
         </div>
       )}
 
-      {archivedNotes.length > 0 && archivedNotes.map((n) => <NoteCard key={n.note_id} {...n} />)}
+      {archivedNotes.length > 0 &&
+        archivedNotes.map((n) => (
+          <NoteCard
+            onClick={onClickNoteCard}
+            className={clsxm(selectedHasNote(n.note_id) && 'bg-accent-4')}
+            key={n.note_id}
+            {...n}
+          />
+        ))}
     </NoteListWrapper>
   )
 }

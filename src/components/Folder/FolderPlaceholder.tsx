@@ -6,7 +6,9 @@ export const FolderPlaceholder = (props: { className?: string }) => {
     <div
       className={clsxm(
         'w-[calc(100vw-300px)] h-screen',
-        'flex flex-col items-center justify-center',
+        'flex flex-col',
+        'items-center justify-center',
+        'bg-accent-2',
         props.className
       )}
     >
