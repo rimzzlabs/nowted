@@ -1,13 +1,12 @@
-import { useNotes } from '@/hooks/useNotes'
 import { clsxm } from '@/util/clsxm'
 import { NoteCard, OnClickCard } from '@/components/Note/NoteCard'
 import { NoteListWrapper } from '@/components/NoteList/NoteListWrapper'
 import { useActiveNote } from '@/hooks/useActiveNote'
+import { useFavNotes } from '@/hooks/favorite'
 
 export const FavoritesNote = () => {
-  const { notes: n } = useNotes()
   const { noteId, updateNoteId } = useActiveNote()
-  const favNotes = n.filter((n) => n.isFavorite)
+  const { favNotes } = useFavNotes()
 
   const getActiveNote = (id: string) => noteId === id
 

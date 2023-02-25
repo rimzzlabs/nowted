@@ -1,1 +1,1 @@
-export * from './useFavorite'
+export * from './useFavNotes'

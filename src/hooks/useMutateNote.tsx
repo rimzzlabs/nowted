@@ -30,11 +30,13 @@ export const useMutateNote = () => {
   }
 
   const updateArchive = (noteId: string, isArchived: boolean) => {
-    setNotes((notes) => getModifiedNote(noteId, notes, { isArchived }))
+    setNotes((notes) => getModifiedNote(noteId, notes, { isArchived, isFavorite: false }))
   }
 
   const updateTrash = (noteId: string, isTrashed: boolean) => {
-    setNotes((notes) => getModifiedNote(noteId, notes, { isTrashed }))
+    setNotes((notes) =>
+      getModifiedNote(noteId, notes, { isTrashed, isFavorite: false, isArchived: false })
+    )
   }
 
   return { updateTitle, updateContent, updateFavorite, updateArchive, updateTrash }
