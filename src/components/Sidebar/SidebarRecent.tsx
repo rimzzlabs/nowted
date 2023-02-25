@@ -11,8 +11,8 @@ export const SidebarRecent = () => {
       </div>
 
       {recents.length === 0 && (
-        <div className='flex items-center justify-center w-full h-40'>
-          <p>Empty right now, open a note!</p>
+        <div className='flex items-center justify-center w-full h-10'>
+          <p className='text-xs font-medium'>Empty right now, open a note!</p>
         </div>
       )}
 

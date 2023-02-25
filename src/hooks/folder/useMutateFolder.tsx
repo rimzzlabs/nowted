@@ -1,15 +1,17 @@
 import { useSetAtom } from 'jotai'
+import { useNavigate, useParams } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import { useActiveFolder } from './useActiveFolder'
-import { useActiveNote } from './useActiveNote'
+import { useActiveNote } from '../useActiveNote'
+import { useNotes } from '../useNotes'
+
 import { AtomFolders, Folder } from './useFolders'
-import { useNotes } from './useNotes'
 
 export const useMutateFolder = () => {
   const setFolders = useSetAtom(AtomFolders)
   const { notes, setNotes } = useNotes()
-  const { folderId, updateFolderId } = useActiveFolder()
   const { noteId, updateNoteId } = useActiveNote()
+  const { folderId } = useParams()
+  const nTo = useNavigate()
 
   const deleteFolder = (targetFolderId: string) => {
     setFolders((prev) => prev.filter((f) => f.folder_id !== targetFolderId))
@@ -21,7 +23,7 @@ export const useMutateFolder = () => {
     }
     const isSameFolder = folderId === targetFolderId
     if (isSameFolder) {
-      updateFolderId(null)
+      nTo('/folder')
     }
   }
 
@@ -30,5 +32,16 @@ export const useMutateFolder = () => {
     setFolders((prev) => [...prev, folder])
   }
 
-  return { deleteFolder, createFolder }
+  const renameFolder = (folderId: string, name: string) => {
+    setFolders((folders) => {
+      const folder = folders.find((f) => f.folder_id === folderId)
+      if (!folder) return folders
+      const sliced = folders.filter((f) => f.folder_id !== folderId)
+      const newFolder: Folder = { ...folder, name }
+
+      return [...sliced, newFolder]
+    })
+  }
+
+  return { deleteFolder, createFolder, renameFolder }
 }

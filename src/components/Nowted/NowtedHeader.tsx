@@ -1,4 +1,4 @@
-import { useFolders } from '@/hooks/useFolders'
+import { useFolders } from '@/hooks/folder'
 import { formatDate } from '@/util/notes'
 import { useCallback, useMemo } from 'react'
 import { HiOutlineCalendar, HiOutlineFolder } from 'react-icons/hi'

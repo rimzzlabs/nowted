@@ -1,5 +1,4 @@
-import { RegularNote } from '@/components/Note'
-import { Nowted } from '@/components/Nowted'
+import { FolderPlaceholder } from '@/components/Folder'
 import { useTimeoutFn } from '@/hooks/useTimeoutFn'
 import { Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
@@ -20,10 +19,7 @@ export default function FolderPage() {
       enter='ease-out duration-300'
       enterTo='opacity-100 scale-100'
     >
-      <div className='flex'>
-        <RegularNote folderId={folderId} />
-        <Nowted folderId={folderId} />
-      </div>
+      <FolderPlaceholder />
     </Transition>
   )
 }

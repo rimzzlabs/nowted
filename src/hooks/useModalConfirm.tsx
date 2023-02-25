@@ -18,6 +18,7 @@ export const useModalConfirm = () => {
   const openModal = (payload: ModalConfirm) => {
     return <T,>(e: React.MouseEvent<T>) => {
       e.stopPropagation()
+      e.preventDefault()
       setOpen(true)
       setData(payload)
     }

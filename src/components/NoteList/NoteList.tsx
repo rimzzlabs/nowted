@@ -22,7 +22,7 @@ export const NoteList = (props: TProps) => {
       enter='ease-out duration-300'
       enterTo='opacity-100 -translate-x-0'
     >
-      <div className='w-[350px] pb-[23px] px-5 h-screen overflow-y-auto custom-sb'>
+      <div className='w-[350px] pb-[23px] px-5 h-screen overflow-y-auto custom-sb bg-accent-2'>
         <NoteListTitle title={props.title} />
 
         {props.notes.length === 0 && (

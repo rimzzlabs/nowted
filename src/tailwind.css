@@ -4,7 +4,7 @@
 
 @layer {
   body {
-    @apply antialiased font-primary text-white bg-accent-2;
+    @apply antialiased font-primary text-white bg-accent-1;
   }
   .custom-sb::-webkit-scrollbar {
     @apply w-1.5;

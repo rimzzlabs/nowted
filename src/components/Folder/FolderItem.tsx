@@ -1,15 +1,14 @@
-import { useActiveFolder } from '@/hooks/useActiveFolder'
-import { Folder } from '@/hooks/useFolders'
+import { Folder, useMutateFolder } from '@/hooks/folder'
 import { useModalConfirm } from '@/hooks/useModalConfirm'
-import { useMutateFolder } from '@/hooks/useMutateFolder'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder, HiOutlineFolderOpen, HiOutlineTrash } from 'react-icons/hi'
+import { useParams } from 'react-router-dom'
 import { UnstyledLink } from '../UnstyledLink'
 
-export const SidebarFolderItem = (props: Folder) => {
+export const FolderItem = (props: Folder) => {
   const { deleteFolder } = useMutateFolder()
-  const { folderId } = useActiveFolder()
   const { openModal } = useModalConfirm()
+  const { folderId } = useParams()
 
   const name = props.name.length > 27 ? props.name.slice(0, 24) + '...' : props.name
 
@@ -32,8 +31,7 @@ export const SidebarFolderItem = (props: Folder) => {
 
       <span
         onClick={openModal({
-          description: `Are you sure you want to delete this folder?.
-          This will also delete all notes belonging to folder ${props.name}!`,
+          description: `Are you sure you want to delete this folder?. This will also delete all notes belonging to folder ${props.name}!`,
           title: 'Delete Folder?',
           onConfirm
         })}

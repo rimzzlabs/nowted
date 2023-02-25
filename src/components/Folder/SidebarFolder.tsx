@@ -1,8 +1,8 @@
 import { HiOutlineFolderAdd } from 'react-icons/hi'
-import { useFolders } from '@/hooks/useFolders'
-import { SidebarFolderItem } from './SidebarFolderItem'
-import { useCreateFolder } from '@/hooks/useCreateFolder'
-import { SidebarNewFolder } from './SidebarNewFolder'
+import { useFolders } from '@/hooks/folder'
+import { useCreateFolder } from '@/hooks/folder/useCreateFolder'
+import { FolderItem } from './FolderItem'
+import { NewFolder } from './NewFolder'
 
 export const SidebarFolder = () => {
   const { folders } = useFolders()
@@ -18,17 +18,17 @@ export const SidebarFolder = () => {
       </div>
 
       {folders.length === 0 && !active && (
-        <div className='flex items-center justify-center w-full h-40'>
-          <p>Folders are empty, create one to start!</p>
+        <div className='flex items-center justify-center w-full h-10'>
+          <p className='text-xs font-medium'>Folders are empty, create one to start!</p>
         </div>
       )}
 
-      <SidebarNewFolder />
+      <NewFolder />
 
       {folders.length > 0 && (
         <div className='flex flex-col space-y-[5px]'>
           {folders.map((folder) => (
-            <SidebarFolderItem key={folder.folder_id} {...folder} />
+            <FolderItem key={folder.folder_id} {...folder} />
           ))}
         </div>
       )}

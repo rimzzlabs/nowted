@@ -1,8 +1,8 @@
-import { useCreateFolder } from '@/hooks/useCreateFolder'
+import { useCreateFolder } from '@/hooks/folder/useCreateFolder'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder } from 'react-icons/hi'
 
-export const SidebarNewFolder = () => {
+export const NewFolder = () => {
   const { active, name, onBlur, onChangeName, onKeyDown } = useCreateFolder()
   if (!active) return null
 
