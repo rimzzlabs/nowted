@@ -1,3 +1,4 @@
+import { useMoreButton } from '@/hooks/note'
 import { clsxm } from '@/util/clsxm'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
@@ -23,10 +24,11 @@ export type NoteMenu = {
 }
 
 export const NowtedMoreButton = (props: TProps) => {
+  const { isBool } = useMoreButton()
   const menus: NoteMenu[] = [
     {
       id: uuid(),
-      name: 'Add to favorites',
+      name: isBool(props.noteId, 'isFavorite') ? 'Remove from favorites' : 'Add to favorites',
       type: 'fav',
       Icon: HiOutlineStar
     },
@@ -64,7 +66,8 @@ export const NowtedMoreButton = (props: TProps) => {
             'absolute right-0 top-9',
             'inline-flex flex-col w-[212px]',
             'overflow-hidden p-[15px] rounded',
-            'bg-accent-4'
+            'bg-accent-4',
+            isBool(props.noteId, 'isFavorite') && 'w-64'
           )}
         >
           {menus.map((menu) => {
