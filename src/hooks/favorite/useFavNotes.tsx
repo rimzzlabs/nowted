@@ -1,7 +1,8 @@
-import { useNotes } from '@/hooks/notes'
+import { AtomFilteredNotes } from '@/hooks/notes'
+import { useAtomValue } from 'jotai'
 
 export const useFavNotes = () => {
-  const { notes } = useNotes()
+  const notes = useAtomValue(AtomFilteredNotes)
 
   const favNotes = notes
     .filter((n) => n.isFavorite)

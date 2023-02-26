@@ -1,18 +1,20 @@
 import { NoteListWrapper } from '@/components/NoteList'
 import { useFolders } from '@/hooks/folder'
-import { useNotes } from '@/hooks/notes'
+import { AtomFilteredNotes, AtomQueryNotes } from '@/hooks/notes'
 import { clsxm } from '@/util/clsxm'
 import { NoteCard } from '@/components/Note/NoteCard'
 import type { OnClickCard } from '@/components/Note/NoteCard'
 import { NoteTitle } from '@/components/Note/NoteTitle'
 import { useActiveNote } from '@/hooks/note'
+import { useAtomValue } from 'jotai'
 
 type TProps = {
   folderId: string
 }
 
 export const RegularNote = (props: TProps) => {
-  const { notes: n } = useNotes()
+  const n = useAtomValue(AtomFilteredNotes)
+  const queryNotes = useAtomValue(AtomQueryNotes)
   const { folders } = useFolders()
   const { updateNoteId, noteId } = useActiveNote()
 
@@ -30,9 +32,15 @@ export const RegularNote = (props: TProps) => {
     <NoteListWrapper>
       <NoteTitle folderId={props.folderId} name={folder.name} />
 
-      {notes.length === 0 && (
+      {notes.length === 0 && queryNotes === '' && (
         <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
           <p>You haven&apos;t create a note on this folder</p>
+        </div>
+      )}
+
+      {notes.length === 0 && queryNotes !== '' && (
+        <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
+          <p>Can&apos;t find your notes, try a different keyword?</p>
         </div>
       )}
 

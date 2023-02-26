@@ -1,6 +1,6 @@
 import { createNote } from '@/util/notes'
 import { useSetAtom } from 'jotai'
-import { AtomNotes } from './useNotes'
+import { AtomNotes } from './atom'
 
 export const useMutateNotes = () => {
   const setNotes = useSetAtom(AtomNotes)

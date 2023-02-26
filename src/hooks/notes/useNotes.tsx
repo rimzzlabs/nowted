@@ -1,19 +1,5 @@
 import { useAtom } from 'jotai'
-import { atomWithStorage } from 'jotai/utils'
-
-export type Note = {
-  note_id: string
-  folder_id: string
-  title: string
-  created_at: string
-  content: string
-  isFavorite: boolean
-  isArchived: boolean
-  isTrashed: boolean
-}
-
-export const NOTES_KEY = 'X-NOTE-LIST'
-export const AtomNotes = atomWithStorage<Note[]>(NOTES_KEY, [])
+import { AtomNotes } from './atom'
 
 export const useNotes = () => {
   const [notes, setNotes] = useAtom(AtomNotes)
