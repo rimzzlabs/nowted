@@ -39,7 +39,7 @@ export const FavoritesNote = () => {
         favNotes.map((n) => (
           <NoteCard
             onClick={onClickNoteCard}
-            className={clsxm(getActiveNote(n.note_id))}
+            className={clsxm(getActiveNote(n.note_id) && 'bg-accent-4')}
             key={n.note_id}
             {...n}
           />
