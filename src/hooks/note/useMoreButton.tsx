@@ -32,10 +32,7 @@ export const useMoreButton = () => {
     updateNoteId(null)
   }
 
-  const isBool = (
-    noteId: string,
-    key: 'isArchived' | 'isTrashed' | 'isFavorite'
-  ) => {
+  const isBool = (noteId: string, key: 'isArchived' | 'isTrashed' | 'isFavorite') => {
     const note = notes.find((n) => n.note_id === noteId)
     if (!note) return false
     return note[key]
@@ -75,8 +72,7 @@ export const useMoreButton = () => {
     if (isFavorite) {
       return {
         title: 'Remove from favorites?',
-        description:
-          'This note will be removed from your favorite notes, you sure?.'
+        description: 'This note will be removed from your favorite notes, you sure?.'
       }
     }
 

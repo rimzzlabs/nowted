@@ -58,11 +58,7 @@ export const ModalConfirm = () => {
                   <p className='whitespace-pre-wrap'>{data?.description}</p>
 
                   <div
-                    className={clsxm(
-                      'mt-4 w-full',
-                      'flex items-center justify-end',
-                      'space-x-2.5'
-                    )}
+                    className={clsxm('mt-4 w-full', 'flex items-center justify-end', 'space-x-2.5')}
                   >
                     <button
                       onClick={closeModal}

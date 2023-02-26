@@ -7,8 +7,7 @@ export const useTrash = () => {
   const addToSelected = useSetAtom(AtomAddToTrash)
   const removeFromSelected = useSetAtom(AtomRemoveFromTrash)
 
-  const selectedHasNote = (id: string) =>
-    selectedNotes.some((n) => n.note_id === id)
+  const selectedHasNote = (id: string) => selectedNotes.some((n) => n.note_id === id)
 
   const onClickNoteCard: OnClickCard = (note) => {
     return () => {

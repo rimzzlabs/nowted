@@ -19,8 +19,7 @@ export const useRenameNote = (props: TPropsHook) => {
     updateTitle(props.noteId, title)
   }
 
-  const onChange = <T extends HTMLInputElement>(e: React.ChangeEvent<T>) =>
-    setTitle(e.target.value)
+  const onChange = <T extends HTMLInputElement>(e: React.ChangeEvent<T>) => setTitle(e.target.value)
   const onBlur = <T,>(e: React.FocusEvent<T>) => {
     e.stopPropagation()
     setActive(false)

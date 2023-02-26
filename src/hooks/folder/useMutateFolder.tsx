@@ -17,9 +17,7 @@ export const useMutateFolder = () => {
     setFolders((prev) => prev.filter((f) => f.folder_id !== targetFolderId))
     setNotes((prev) => prev.filter((n) => n.folder_id !== targetFolderId))
     const targetNote =
-      notes.find(
-        (n) => n.note_id === noteId && n.folder_id === targetFolderId
-      ) ?? null
+      notes.find((n) => n.note_id === noteId && n.folder_id === targetFolderId) ?? null
     if (targetNote) {
       updateNoteId(null)
     }
@@ -36,7 +34,6 @@ export const useMutateFolder = () => {
       name
     }
     setFolders((prev) => {
-      if (prev.length === 0) nTo(`/folder/${folder.folder_id}`)
       return [...prev, folder]
     })
   }

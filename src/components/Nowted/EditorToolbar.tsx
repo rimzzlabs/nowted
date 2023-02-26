@@ -1,10 +1,6 @@
 import { Editor } from '@tiptap/react'
 import { HiOutlineChevronDown } from 'react-icons/hi'
-import {
-  AiOutlineBold,
-  AiOutlineItalic,
-  AiOutlineUnderline
-} from 'react-icons/ai'
+import { AiOutlineBold, AiOutlineItalic, AiOutlineUnderline } from 'react-icons/ai'
 import { clsxm } from '@/util/clsxm'
 
 type TProps = {
@@ -43,9 +39,7 @@ export const EditorToolbar = (props: TProps) => {
         <button
           onClick={onClickBold}
           className={clsxm(
-            props.editor?.isFocused &&
-              props.editor?.isActive('bold') &&
-              'text-blue-500'
+            props.editor?.isFocused && props.editor?.isActive('bold') && 'text-blue-500'
           )}
         >
           <AiOutlineBold className='w-5 h-5' />
@@ -54,9 +48,7 @@ export const EditorToolbar = (props: TProps) => {
         <button
           onClick={onClickItalic}
           className={clsxm(
-            props.editor?.isFocused &&
-              props.editor?.isActive('italic') &&
-              'text-blue-500'
+            props.editor?.isFocused && props.editor?.isActive('italic') && 'text-blue-500'
           )}
         >
           <AiOutlineItalic className='w-5 h-5' />
@@ -65,9 +57,7 @@ export const EditorToolbar = (props: TProps) => {
         <button
           onClick={onClickUnderline}
           className={clsxm(
-            props.editor?.isFocused &&
-              props.editor?.isActive('underline') &&
-              'text-blue-500'
+            props.editor?.isFocused && props.editor?.isActive('underline') && 'text-blue-500'
           )}
         >
           <AiOutlineUnderline className='w-5 h-5' />

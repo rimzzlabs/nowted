@@ -21,17 +21,8 @@ export const FavoritesNote = () => {
       </div>
 
       {favNotes.length === 0 && (
-        <div
-          className={clsxm(
-            'flex items-center justify-center',
-            'w-full h-72',
-            'text-center'
-          )}
-        >
-          <p>
-            Add some of your notes as your favorite notes, then it will be
-            visible here.
-          </p>
+        <div className={clsxm('flex items-center justify-center', 'w-full h-72', 'text-center')}>
+          <p>Add some of your notes as your favorite notes, then it will be visible here.</p>
         </div>
       )}
 

@@ -17,13 +17,10 @@ const ROUTES = import.meta.glob('/src/pages/**/[a-z[]*.tsx') as Record<
   () => Promise<{ default: React.FunctionComponent }>
 >
 
-export const preservedRoutes = Object.keys(PRESERVED).reduce(
-  (preserved, file) => {
-    const key = file.replace(/\/src\/pages\/|\.tsx$/g, '')
-    return { ...preserved, [key]: PRESERVED[file].default }
-  },
-  {} as Record<string, (prop: Child) => JSX.Element>
-)
+export const preservedRoutes = Object.keys(PRESERVED).reduce((preserved, file) => {
+  const key = file.replace(/\/src\/pages\/|\.tsx$/g, '')
+  return { ...preserved, [key]: PRESERVED[file].default }
+}, {} as Record<string, (prop: Child) => JSX.Element>)
 
 export const routes = Object.keys(ROUTES).map((route) => {
   const path = route
