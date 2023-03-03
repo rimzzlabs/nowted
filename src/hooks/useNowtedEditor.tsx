@@ -1,7 +1,10 @@
 import { clsxm } from '@/util/clsxm'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import Placeholder from '@tiptap/extension-placeholder'
+import Dropcursor from '@tiptap/extension-dropcursor'
+import Image from '@tiptap/extension-image'
 import Underline from '@tiptap/extension-underline'
+import TiptapLink from '@tiptap/extension-link'
 import { useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
@@ -32,6 +35,16 @@ export const useNowtedEditor = (props: TProps) => {
       StarterKit.configure({ codeBlock: false }),
       Underline.configure({ HTMLAttributes: { class: 'underline' } }),
       CodeBlockLowlight.configure({ lowlight }),
+      Dropcursor.configure({ class: 'text-black w-0.5' }),
+      Image.configure({ allowBase64: true }),
+      TiptapLink.configure({
+        autolink: false,
+        protocols: ['ftp', 'mailto'],
+        HTMLAttributes: {
+          class: 'text-primary underline decoration-primary',
+          rel: 'noopener noreferrer'
+        }
+      }),
       Placeholder.configure({
         placeholder: 'Write your notes here!',
         emptyEditorClass: clsxm(

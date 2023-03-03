@@ -4,7 +4,11 @@ specifiers:
   '@headlessui/react': ^1.7.7
   '@tailwindcss/typography': ^0.5.9
   '@tiptap/core': 2.0.0-beta.218
+  '@tiptap/extension-bubble-menu': 2.0.0-beta.220
   '@tiptap/extension-code-block-lowlight': 2.0.0-beta.218
+  '@tiptap/extension-dropcursor': 2.0.0-beta.220
+  '@tiptap/extension-image': 2.0.0-beta.220
+  '@tiptap/extension-link': 2.0.0-beta.220
   '@tiptap/extension-placeholder': 2.0.0-beta.218
   '@tiptap/extension-underline': 2.0.0-beta.218
   '@tiptap/pm': 2.0.0-beta.218
@@ -46,7 +50,11 @@ dependencies:
   '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
   '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
+  '@tiptap/extension-bubble-menu': 2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64
   '@tiptap/extension-code-block-lowlight': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
+  '@tiptap/extension-dropcursor': 2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64
+  '@tiptap/extension-image': 2.0.0-beta.220_xixjdlstfbsoyvyes7aewz3ng4
+  '@tiptap/extension-link': 2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64
   '@tiptap/extension-placeholder': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
   '@tiptap/extension-underline': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
   '@tiptap/pm': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
@@ -724,8 +732,8 @@ packages:
       '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
     dev: false
 
-  /@tiptap/extension-bubble-menu/2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64:
-    resolution: {integrity: sha512-NXVaRSoweM54AGCJCJWkY3D9CfYlARtC04+7T8EF0Dwz99RcVzDHCXaNJGk+rMH7vGxsJop4RxHEQO/D2pgADw==}
+  /@tiptap/extension-bubble-menu/2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64:
+    resolution: {integrity: sha512-wthyec7s0vZlTSEAAZEgoFfx/1Arwg1zxDUrrE+YAost/Yn+w4xQksz/ts5Bx90iOk2qsJ+jzzttLRV17Ku7lA==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.209
       '@tiptap/pm': ^2.0.0-beta.209
@@ -781,8 +789,8 @@ packages:
       '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
     dev: false
 
-  /@tiptap/extension-dropcursor/2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64:
-    resolution: {integrity: sha512-RvYB0koNJs3ETcVnzwda0hhDxCa2hoKW1C3WiRKg1+pYA5oW12NtiNWqViQKkSn1ugQXXzhdxMHGCSr4BczmAA==}
+  /@tiptap/extension-dropcursor/2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64:
+    resolution: {integrity: sha512-BIaA4Lvb3xL9KFN+K6SO2IHqLO6hDmGN2/rGKHFaU3Eh+oiXM2G73KTSS5KIP1u872zY1RpAtswSc4kjv3cuVw==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.209
       '@tiptap/pm': ^2.0.0-beta.209
@@ -848,12 +856,31 @@ packages:
       '@tiptap/pm': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
     dev: false
 
+  /@tiptap/extension-image/2.0.0-beta.220_xixjdlstfbsoyvyes7aewz3ng4:
+    resolution: {integrity: sha512-xyzlY/cupj/7AVqybQDaPaJ3SwKqe12xMWQlWxhhksuNpbQ6RGHrJz0DBSe61kIkaTZmIUBw055IFEMOPFF53g==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.209
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
+    dev: false
+
   /@tiptap/extension-italic/2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4:
     resolution: {integrity: sha512-+/NRGoLQXi+CCziVT7MixB10jC72c5BCG6w15H4hfHkD+eJc/DfzLCuIaePzYCZC/xqjNI/EBNh6BP3HTMHCpQ==}
     peerDependencies:
       '@tiptap/core': ^2.0.0-beta.209
     dependencies:
       '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
+    dev: false
+
+  /@tiptap/extension-link/2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64:
+    resolution: {integrity: sha512-vjEA8cE37ZZVVgPHSpttw3kbJoClb+ya/BVukDtJ1h6C7mIR1rqzNxTgpbnXJuA8xww0JOjpa5dpzEgcs294fA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.209
+      '@tiptap/pm': ^2.0.0-beta.209
+    dependencies:
+      '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
+      '@tiptap/pm': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
+      linkifyjs: 4.1.0
     dev: false
 
   /@tiptap/extension-list-item/2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4:
@@ -949,7 +976,7 @@ packages:
       react-dom: ^17.0.0 || ^18.0.0
     dependencies:
       '@tiptap/core': 2.0.0-beta.218_@tiptap+pm@2.0.0-beta.218
-      '@tiptap/extension-bubble-menu': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
+      '@tiptap/extension-bubble-menu': 2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64
       '@tiptap/extension-floating-menu': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
       '@tiptap/pm': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
       react: 18.2.0
@@ -966,7 +993,7 @@ packages:
       '@tiptap/extension-code': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
       '@tiptap/extension-code-block': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
       '@tiptap/extension-document': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
-      '@tiptap/extension-dropcursor': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
+      '@tiptap/extension-dropcursor': 2.0.0-beta.220_p7b6nzxe7qctmzbzapdik3nr64
       '@tiptap/extension-gapcursor': 2.0.0-beta.218_p7b6nzxe7qctmzbzapdik3nr64
       '@tiptap/extension-hard-break': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
       '@tiptap/extension-heading': 2.0.0-beta.218_xixjdlstfbsoyvyes7aewz3ng4
@@ -3092,6 +3119,10 @@ packages:
     resolution: {integrity: sha512-C7bfi1UZmoj8+PQx22XyeXCuBlokoyWQL5pWSP+EI6nzRylyThouddufc2c1NDIcP9k5agmN9fLpA7VNJfIiqw==}
     dependencies:
       uc.micro: 1.0.6
+    dev: false
+
+  /linkifyjs/4.1.0:
+    resolution: {integrity: sha512-Ffv8VoY3+ixI1b3aZ3O+jM6x17cOsgwfB1Wq7pkytbo1WlyRp6ZO0YDMqiWT/gQPY/CmtiGuKfzDIVqxh1aCTA==}
     dev: false
 
   /lint-staged/13.1.2:

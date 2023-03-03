@@ -2,6 +2,8 @@ import { Editor } from '@tiptap/react'
 import { HiOutlineChevronDown } from 'react-icons/hi'
 import { AiOutlineBold, AiOutlineItalic, AiOutlineUnderline } from 'react-icons/ai'
 import { clsxm } from '@/util/clsxm'
+import { ImageToolbar } from './Image'
+import { LinkToolbar } from './Link'
 
 type TProps = {
   editor: Editor | null
@@ -26,16 +28,25 @@ export const EditorToolbar = (props: TProps) => {
 
   return (
     <div className='w-full flex py-4 border-y border-accent-4'>
-      <button className='w-[133px] flex items-center justify-between mr-[30px]'>
+      <button
+        disabled
+        title='Feature note available 😢'
+        className='w-[133px] flex items-center justify-between mr-[30px] disabled:opacity-60 disabled:cursor-not-allowed'
+      >
         <span>Paragraph</span>
         <HiOutlineChevronDown />
       </button>
-      <button className='w-[44px] flex items-center justify-between mr-[30px]'>
+
+      <button
+        disabled
+        title='Feature note available 😢'
+        className='w-[44px] flex items-center justify-between mr-[30px] disabled:opacity-60 disabled:cursor-not-allowed'
+      >
         <span>16</span>
         <HiOutlineChevronDown />
       </button>
 
-      <div className='flex items-center space-x-2.5'>
+      <div className='flex items-center space-x-2.5 mr-[30px]'>
         <button
           onClick={onClickBold}
           className={clsxm(
@@ -62,6 +73,12 @@ export const EditorToolbar = (props: TProps) => {
         >
           <AiOutlineUnderline className='w-5 h-5' />
         </button>
+      </div>
+
+      <div className='flex items-center space-x-2.5'>
+        <ImageToolbar editor={props.editor} />
+
+        <LinkToolbar editor={props.editor} />
       </div>
     </div>
   )
