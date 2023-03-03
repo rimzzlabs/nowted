@@ -10,7 +10,6 @@ const vendors = [
   '@tiptap/extension-code-block-lowlight',
   '@tiptap/extension-placeholder',
   '@tiptap/extension-underline',
-  '@tiptap/extension-dropcursor',
   '@tiptap/extension-image',
   '@tiptap/extension-link',
   '@tiptap/react',

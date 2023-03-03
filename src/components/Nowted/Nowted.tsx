@@ -4,6 +4,7 @@ import { useNowtedEditor } from '@/hooks/useNowtedEditor'
 import { clsxm } from '@/util/clsxm'
 import { TipTap } from '@/components/TipTap'
 import { NowtedHeader } from './NowtedHeader'
+import { NowtedBubble } from './BubbleMenu'
 
 export const Nowted = (note: Note) => {
   const { updateContent } = useMutateNote()
@@ -32,6 +33,7 @@ export const Nowted = (note: Note) => {
         editor={editor}
       />
 
+      <NowtedBubble editor={editor} />
       <TipTap editor={editor} />
     </div>
   )

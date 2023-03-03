@@ -1,7 +1,6 @@
 import { clsxm } from '@/util/clsxm'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import Placeholder from '@tiptap/extension-placeholder'
-import Dropcursor from '@tiptap/extension-dropcursor'
 import Image from '@tiptap/extension-image'
 import Underline from '@tiptap/extension-underline'
 import TiptapLink from '@tiptap/extension-link'
@@ -32,10 +31,9 @@ export const useNowtedEditor = (props: TProps) => {
   return useEditor({
     content: props.content,
     extensions: [
-      StarterKit.configure({ codeBlock: false }),
+      StarterKit.configure({ codeBlock: false, dropcursor: { class: 'text-white w-0.5' } }),
       Underline.configure({ HTMLAttributes: { class: 'underline' } }),
       CodeBlockLowlight.configure({ lowlight }),
-      Dropcursor.configure({ class: 'text-black w-0.5' }),
       Image.configure({ allowBase64: true }),
       TiptapLink.configure({
         autolink: false,
