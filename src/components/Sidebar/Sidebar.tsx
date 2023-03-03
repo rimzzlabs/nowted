@@ -6,12 +6,14 @@ import { SidebarNewNote } from './SidebarNewNote'
 import { SidebarRecent } from './SidebarRecent'
 import { SidebarSearch } from './SidebarSearch'
 import { useSearchNotes } from '@/hooks/notes/useSearchNotes'
+import { useMediaLayout } from '@/hooks/useMediaLayout'
 
 export const Sidebar = () => {
   const { active } = useSearchNotes()
   const { pathname } = useLocation()
+  const isBigScreen = useMediaLayout('1024px')
 
-  if (pathname === '/404') return null
+  if (pathname === '/404' || !isBigScreen) return null
 
   return (
     <aside className='fixed inset-y-0 left-0 z-50'>

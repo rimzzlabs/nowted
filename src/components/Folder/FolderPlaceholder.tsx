@@ -1,14 +1,18 @@
+import { useMediaLayout } from '@/hooks/useMediaLayout'
 import { clsxm } from '@/util/clsxm'
 import { HiOutlineFolder } from 'react-icons/hi'
 
 export const FolderPlaceholder = (props: { className?: string }) => {
+  const isBigScreen = useMediaLayout('1024px')
+
   return (
     <div
       className={clsxm(
-        'w-[calc(100vw-300px)] h-screen',
+        'h-screen',
         'flex flex-col',
         'items-center justify-center',
         'bg-accent-2',
+        isBigScreen && 'w-[calc(100vw-300px)]',
         props.className
       )}
     >
