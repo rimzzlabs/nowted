@@ -18,4 +18,14 @@
   .custom-sb::-moz-scrollbar-thumb {
     @apply bg-white rounded;
   }
+  .resize-cursor {
+    cursor: ew-resize;
+    cursor: col-resize;
+  }
+  .selectedCell {
+    @apply after:bg-accent-4/50 after:inset-0 after:pointer-events-none after:absolute after:z-[2];
+  }
+  .column-resize-handle {
+    @apply bg-blue-500 absolute -bottom-0.5 -right-0.5 top-0 w-1 pointer-events-none;
+  }
 }

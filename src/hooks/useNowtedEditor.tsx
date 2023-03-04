@@ -1,10 +1,14 @@
 import { clsxm } from '@/util/clsxm'
+import { useEditor } from '@tiptap/react'
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import Placeholder from '@tiptap/extension-placeholder'
 import Image from '@tiptap/extension-image'
 import Underline from '@tiptap/extension-underline'
 import TiptapLink from '@tiptap/extension-link'
-import { useEditor } from '@tiptap/react'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 import StarterKit from '@tiptap/starter-kit'
 
 import css from 'highlight.js/lib/languages/css'
@@ -33,6 +37,19 @@ export const useNowtedEditor = (props: TProps) => {
     extensions: [
       StarterKit.configure({ codeBlock: false, dropcursor: { class: 'text-white w-0.5' } }),
       Underline.configure({ HTMLAttributes: { class: 'underline' } }),
+      Table.configure({
+        allowTableNodeSelection: true,
+        HTMLAttributes: { class: 'table-fixed not-prose' }
+      }),
+      TableHeader.configure({
+        HTMLAttributes: {
+          class: 'relative border border-accent-4 border-collapse px-1.5 py-2 bg-accent-2'
+        }
+      }),
+      TableRow,
+      TableCell.configure({
+        HTMLAttributes: { class: 'relative border border-accent-4 border-collapse px-1.5 py-2' }
+      }),
       CodeBlockLowlight.configure({ lowlight }),
       Image.configure({ allowBase64: true }),
       TiptapLink.configure({

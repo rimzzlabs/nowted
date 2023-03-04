@@ -84,7 +84,7 @@ export const NowtedBubble = (props: TProps) => {
           'inline-flex items-center justify-center',
           'w-9 h-9',
           'bg-accent-4 hover:bg-accent-3',
-          editor.isActive('link') && 'text-blue-500'
+          editor.isActive('image') && 'text-blue-500'
         )}
       >
         <FiImage className='w-5 h-5' />

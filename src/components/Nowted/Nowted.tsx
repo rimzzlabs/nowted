@@ -5,8 +5,10 @@ import { clsxm } from '@/util/clsxm'
 import { TipTap } from '@/components/TipTap'
 import { NowtedHeader } from './NowtedHeader'
 import { NowtedBubble } from './BubbleMenu'
+import { useMediaLayout } from '@/hooks/useMediaLayout'
 
 export const Nowted = (note: Note) => {
+  const isBigScreen = useMediaLayout('1024px')
   const { updateContent } = useMutateNote()
   const editor = useNowtedEditor({
     content: note.content,
@@ -19,9 +21,10 @@ export const Nowted = (note: Note) => {
       className={clsxm(
         'flex flex-col',
         'px-[50px] pb-4',
-        'w-[calc(100vw-650px)] h-screen',
+        'w-full h-screen',
         'overflow-y-auto custom-sb',
-        'bg-accent-1'
+        'bg-accent-1',
+        isBigScreen && 'w-[calc(100vw-650px)] '
       )}
     >
       <NowtedHeader

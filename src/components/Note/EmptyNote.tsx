@@ -18,8 +18,7 @@ export const EmptyNote = () => {
 
       <p className='font-semibold text-[28px] mb-2'>Select a note to view</p>
       <p className='text-center max-w-sm'>
-        Choose a note from the list on the left to view its contents. Or create a new note to add to
-        your collection.
+        Choose a note. Or create a new note to add to your collection.
       </p>
     </div>
   )

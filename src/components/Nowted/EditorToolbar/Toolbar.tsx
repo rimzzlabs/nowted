@@ -4,6 +4,7 @@ import { AiOutlineBold, AiOutlineItalic, AiOutlineUnderline } from 'react-icons/
 import { clsxm } from '@/util/clsxm'
 import { ImageToolbar } from './Image'
 import { LinkToolbar } from './Link'
+import { TableToolbar } from './Table'
 
 type TProps = {
   editor: Editor | null
@@ -75,11 +76,13 @@ export const EditorToolbar = (props: TProps) => {
         </button>
       </div>
 
-      <div className='flex items-center space-x-2.5'>
+      <div className='flex items-center space-x-2.5 mr-[30px]'>
         <ImageToolbar editor={props.editor} />
 
         <LinkToolbar editor={props.editor} />
       </div>
+
+      <TableToolbar editor={props.editor} />
     </div>
   )
 }
