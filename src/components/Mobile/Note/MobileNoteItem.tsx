@@ -35,7 +35,7 @@ export const MobileNoteItem = (props: TProps) => {
       className={clsxm(
         'group flex items-center',
         'w-full h-10',
-        'px-[20px] transition',
+        'px-4 transition',
         'hover:bg-accent-2',
         noteId === props.noteId && 'bg-primary text-white'
       )}

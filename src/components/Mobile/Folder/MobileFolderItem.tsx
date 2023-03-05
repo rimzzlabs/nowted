@@ -24,7 +24,7 @@ export const MobileFolderItem = (props: Folder) => {
       className={clsxm(
         'group flex items-center',
         'w-full h-11',
-        'px-[20px] transition',
+        'px-4 transition',
         'hover:bg-accent-2',
         folderId === props.folder_id && 'bg-accent-3'
       )}

@@ -2,9 +2,11 @@ import { useMobileMenu } from '@/hooks/useMobileMenu'
 import { clsxm } from '@/util/clsxm'
 import { Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { HiPencil } from 'react-icons/hi'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { MobileSidebarFolder } from '../Folder'
 import { MobileSidebarNote } from '../Note'
+import { MobileCreateNote } from './MobileCreateNote'
 import { MobileSidebarMore } from './MobileSidebarMore'
 
 export const MobileSidebar = () => {
@@ -25,7 +27,7 @@ export const MobileSidebar = () => {
       leaveFrom='opacity-100 w-0 overflow-x-hidden'
       leaveTo='opacity-0 w-0'
     >
-      <aside className='fixed left-0 inset-y-0 top-[6.725rem] z-50'>
+      <aside className='fixed left-0 inset-y-0 top-16 z-50'>
         <div
           className={clsxm(
             'h-full w-64 py-4 space-y-10',
@@ -33,6 +35,15 @@ export const MobileSidebar = () => {
             (folderId || validURLClassName.includes(pathname)) && 'bg-accent-2'
           )}
         >
+          <div className='flex items-center h-8 px-4'>
+            <Link to='/' className='flex'>
+              <p className='font-title h-[38px] text-[26px]'>Nowted</p>
+              <HiPencil className='ml-2.5' />
+            </Link>
+          </div>
+
+          <MobileCreateNote />
+
           <MobileSidebarFolder />
 
           <MobileSidebarNote />

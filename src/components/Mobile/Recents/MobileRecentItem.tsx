@@ -31,13 +31,13 @@ export const MobileRecentItem = (props: TProps) => {
       onClick={handleClick(note.note_id)}
       className={clsxm(
         'group flex items-center',
-        'w-24 h-10',
+        'w-full h-9',
         'px-2.5 transition',
         'hover:bg-accent-2',
         noteId === props.noteId && 'bg-primary text-white'
       )}
     >
-      <HiOutlineDocumentText className='w-3 h-3 mr-2.5' />
+      <HiOutlineDocumentText className='mr-1' />
       <span className='font-semibold truncate text-xs'>{getName(note.title)}</span>
     </button>
   )

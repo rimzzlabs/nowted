@@ -26,10 +26,12 @@ export const SidebarFolder = () => {
       <NewFolder />
 
       {folders.length > 0 && (
-        <div className='flex flex-col space-y-[5px]'>
-          {folders.map((folder) => (
-            <FolderItem key={folder.folder_id} {...folder} />
-          ))}
+        <div className='max-h-32 overflow-y-auto custom-sb'>
+          <div className='flex flex-col space-y-[5px]'>
+            {folders.map((folder) => (
+              <FolderItem key={folder.folder_id} {...folder} />
+            ))}
+          </div>
         </div>
       )}
     </div>

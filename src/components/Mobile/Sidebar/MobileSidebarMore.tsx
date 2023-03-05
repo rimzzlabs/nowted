@@ -27,7 +27,7 @@ export const MobileSidebarMore = () => {
 
   return (
     <div className='w-full'>
-      <p className='text-sm font-semibold mb-2 px-[20px]'>More</p>
+      <p className='text-sm font-semibold mb-2 px-4'>More</p>
 
       {moreMenus.map((menu) => (
         <button
@@ -36,7 +36,7 @@ export const MobileSidebarMore = () => {
           className={clsxm(
             'w-full',
             'flex items-center',
-            'px-[20px] h-10',
+            'px-4 h-10',
             'transition hover:bg-accent-2',
             loc.pathname === menu.path && 'bg-accent-3'
           )}
