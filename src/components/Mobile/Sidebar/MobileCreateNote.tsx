@@ -19,7 +19,8 @@ export const MobileCreateNote = () => {
         'flex items-center justify-center',
         'h-12 w-[calc(100%-32px)] px-2.5',
         'mx-auto space-x-2.5',
-        'bg-accent-3'
+        'bg-accent-3',
+        'disabled:opacity-50'
       )}
     >
       <HiPlus />
