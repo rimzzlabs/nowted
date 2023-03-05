@@ -26,7 +26,7 @@ export const NowtedHeader: React.FunctionComponent<TProps> = (props) => {
   const folder = useMemo(() => getFolder(), [getFolder])
 
   return (
-    <header className='sticky top-0 pt-[50px] z-50 bg-accent-1'>
+    <header className='sticky top-0 pt-[50px] z-40 bg-accent-1'>
       <div className='flex items-center mb-[35px]'>
         <NowtedTitle noteId={props.noteId} title={props.title} />
 

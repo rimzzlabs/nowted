@@ -28,61 +28,65 @@ export const EditorToolbar = (props: TProps) => {
   }
 
   return (
-    <div className='w-full flex py-4 border-y border-accent-4'>
-      <button
-        disabled
-        title='Feature note available 😢'
-        className='w-[133px] flex items-center justify-between mr-[30px] disabled:opacity-60 disabled:cursor-not-allowed'
-      >
-        <span>Paragraph</span>
-        <HiOutlineChevronDown />
-      </button>
-
-      <button
-        disabled
-        title='Feature note available 😢'
-        className='w-[44px] flex items-center justify-between mr-[30px] disabled:opacity-60 disabled:cursor-not-allowed'
-      >
-        <span>16</span>
-        <HiOutlineChevronDown />
-      </button>
-
-      <div className='flex items-center space-x-2.5 mr-[30px]'>
+    <div className='w-full flex flex-col lg:flex-row  py-4 border-y border-accent-4'>
+      <div className='flex mr-[30px] mb-10 lg:mb-0'>
         <button
-          onClick={onClickBold}
-          className={clsxm(
-            props.editor?.isFocused && props.editor?.isActive('bold') && 'text-blue-500'
-          )}
+          disabled
+          title='Feature note available 😢'
+          className='w-[133px] flex items-center justify-between mr-[30px] disabled:opacity-60 disabled:cursor-not-allowed'
         >
-          <AiOutlineBold className='w-5 h-5' />
+          <span>Paragraph</span>
+          <HiOutlineChevronDown />
         </button>
 
         <button
-          onClick={onClickItalic}
-          className={clsxm(
-            props.editor?.isFocused && props.editor?.isActive('italic') && 'text-blue-500'
-          )}
+          disabled
+          title='Feature note available 😢'
+          className='w-[44px] flex items-center justify-between disabled:opacity-60 disabled:cursor-not-allowed'
         >
-          <AiOutlineItalic className='w-5 h-5' />
-        </button>
-
-        <button
-          onClick={onClickUnderline}
-          className={clsxm(
-            props.editor?.isFocused && props.editor?.isActive('underline') && 'text-blue-500'
-          )}
-        >
-          <AiOutlineUnderline className='w-5 h-5' />
+          <span>16</span>
+          <HiOutlineChevronDown />
         </button>
       </div>
 
-      <div className='flex items-center space-x-2.5 mr-[30px]'>
-        <ImageToolbar editor={props.editor} />
+      <div className='flex'>
+        <div className='flex items-center space-x-2.5 mr-[30px]'>
+          <button
+            onClick={onClickBold}
+            className={clsxm(
+              props.editor?.isFocused && props.editor?.isActive('bold') && 'text-blue-500'
+            )}
+          >
+            <AiOutlineBold className='w-5 h-5' />
+          </button>
 
-        <LinkToolbar editor={props.editor} />
+          <button
+            onClick={onClickItalic}
+            className={clsxm(
+              props.editor?.isFocused && props.editor?.isActive('italic') && 'text-blue-500'
+            )}
+          >
+            <AiOutlineItalic className='w-5 h-5' />
+          </button>
+
+          <button
+            onClick={onClickUnderline}
+            className={clsxm(
+              props.editor?.isFocused && props.editor?.isActive('underline') && 'text-blue-500'
+            )}
+          >
+            <AiOutlineUnderline className='w-5 h-5' />
+          </button>
+        </div>
+
+        <div className='flex items-center space-x-2.5 mr-[30px]'>
+          <ImageToolbar editor={props.editor} />
+
+          <LinkToolbar editor={props.editor} />
+        </div>
+
+        <TableToolbar editor={props.editor} />
       </div>
-
-      <TableToolbar editor={props.editor} />
     </div>
   )
 }

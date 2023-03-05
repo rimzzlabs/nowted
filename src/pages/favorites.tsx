@@ -24,7 +24,7 @@ export default function HomePage() {
           className={clsxm(
             'h-screen flex flex-col',
             'items-center justify-center',
-            'w-[calc(100vw-650px)] bg-accent-1'
+            'lg:w-[calc(100vw-650px)] bg-accent-1'
           )}
         >
           <HiOutlineDocumentText className='w-20 h-20' />

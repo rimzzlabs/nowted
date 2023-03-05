@@ -20,7 +20,7 @@ export const Nowted = (note: Note) => {
     <div
       className={clsxm(
         'flex flex-col',
-        'px-[50px] pb-4',
+        'px-6 lg:px-[50px] pb-4 pt-24 lg:pt-0',
         'w-full h-screen',
         'overflow-y-auto custom-sb',
         'bg-accent-1',

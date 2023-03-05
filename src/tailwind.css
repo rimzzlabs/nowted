@@ -7,13 +7,13 @@
     @apply antialiased font-primary text-white bg-accent-1;
   }
   .custom-sb::-webkit-scrollbar {
-    @apply w-1.5;
+    @apply w-1 lg:w-1.5;
   }
   .custom-sb::-webkit-scrollbar-thumb {
     @apply bg-white rounded;
   }
   .custom-sb::-moz-scrollbar {
-    @apply w-1.5;
+    @apply w-1 lg:w-1.5;
   }
   .custom-sb::-moz-scrollbar-thumb {
     @apply bg-white rounded;
@@ -27,5 +27,8 @@
   }
   .column-resize-handle {
     @apply bg-blue-500 absolute -bottom-0.5 -right-0.5 top-0 w-1 pointer-events-none;
+  }
+  .tableWrapper > table {
+    @apply table-auto;
   }
 }

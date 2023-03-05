@@ -7,7 +7,7 @@ export const TrashBody = () => {
   return (
     <div
       className={clsxm(
-        'w-[calc(100vw-650px)] h-screen',
+        'lg:w-[calc(100vw-650px)] h-screen',
         'flex flex-col',
         'items-center justify-center',
         'bg-accent-1'

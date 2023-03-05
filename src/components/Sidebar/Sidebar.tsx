@@ -7,6 +7,7 @@ import { SidebarRecent } from './SidebarRecent'
 import { SidebarSearch } from './SidebarSearch'
 import { useSearchNotes } from '@/hooks/notes/useSearchNotes'
 import { useMediaLayout } from '@/hooks/useMediaLayout'
+import { clsxm } from '@/util/clsxm'
 
 export const Sidebar = () => {
   const { active } = useSearchNotes()
@@ -17,7 +18,13 @@ export const Sidebar = () => {
 
   return (
     <aside className='fixed inset-y-0 left-0 z-50'>
-      <div className='w-[300px] space-y-[30px] h-full py-[30px] bg-accent-1'>
+      <div
+        className={clsxm(
+          'w-[300px] space-y-[30px]',
+          'h-full py-[30px]',
+          'bg-accent-1 overflow-y-auto custom-sb'
+        )}
+      >
         <div className='flex items-center px-5'>
           {!active && (
             <Link to='/' className='flex'>

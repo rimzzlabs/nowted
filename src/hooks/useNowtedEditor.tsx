@@ -38,6 +38,7 @@ export const useNowtedEditor = (props: TProps) => {
       StarterKit.configure({ codeBlock: false, dropcursor: { class: 'text-white w-0.5' } }),
       Underline.configure({ HTMLAttributes: { class: 'underline' } }),
       Table.configure({
+        resizable: true,
         allowTableNodeSelection: true,
         HTMLAttributes: { class: 'table-fixed not-prose' }
       }),
@@ -51,7 +52,7 @@ export const useNowtedEditor = (props: TProps) => {
         HTMLAttributes: { class: 'relative border border-accent-4 border-collapse px-1.5 py-2' }
       }),
       CodeBlockLowlight.configure({ lowlight }),
-      Image.configure({ allowBase64: true }),
+      Image.configure({ allowBase64: true, HTMLAttributes: { class: 'w-64 h-64 aspect-video' } }),
       TiptapLink.configure({
         autolink: false,
         protocols: ['ftp', 'mailto'],
