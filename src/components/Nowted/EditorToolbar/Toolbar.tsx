@@ -28,8 +28,8 @@ export const EditorToolbar = (props: TProps) => {
   }
 
   return (
-    <div className='w-full flex flex-col lg:flex-row  py-4 border-y border-accent-4'>
-      <div className='flex mr-[30px] mb-10 lg:mb-0'>
+    <div className='w-full flex flex-col lg:flex-row py-4 border-y border-accent-4'>
+      <div className='flex mr-[30px] mb-6 lg:mb-0'>
         <button
           disabled
           title='Feature note available 😢'
