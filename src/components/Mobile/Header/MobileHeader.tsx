@@ -1,6 +1,7 @@
 import { useMediaLayout } from '@/hooks/useMediaLayout'
 import { clsxm } from '@/util/clsxm'
-import { useLocation, useParams } from 'react-router-dom'
+import { HiPencil } from 'react-icons/hi'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { MobileRecents } from '../Recents'
 import { MobileHeaderMenu } from './MobileHeaderMenu'
 import { MobileSearch } from './MobileSearch'
@@ -23,6 +24,13 @@ export const MobileHeader = () => {
           (folderId || validURLClassName.includes(pathname)) && 'bg-accent-2'
         )}
       >
+        <div className='flex items-center h-8 px-4'>
+          <Link to='/' className='flex'>
+            <p className='font-title h-[38px] text-[26px]'>Nowted</p>
+            <HiPencil className='ml-2.5' />
+          </Link>
+        </div>
+
         <MobileSearch />
         <MobileHeaderMenu />
       </div>
