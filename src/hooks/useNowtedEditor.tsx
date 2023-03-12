@@ -10,20 +10,8 @@ import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
 import StarterKit from '@tiptap/starter-kit'
-
-import css from 'highlight.js/lib/languages/css'
-import js from 'highlight.js/lib/languages/javascript'
-import ts from 'highlight.js/lib/languages/typescript'
-import html from 'highlight.js/lib/languages/xml'
-import tsx from 'highlight.js/lib/languages/typescript'
+import lowlight from '@/util/lowlight'
 import 'highlight.js/styles/atom-one-dark.css'
-import { lowlight } from 'lowlight'
-
-lowlight.registerLanguage('html', html)
-lowlight.registerLanguage('css', css)
-lowlight.registerLanguage('js', js)
-lowlight.registerLanguage('ts', ts)
-lowlight.registerLanguage('tsx', tsx)
 
 type TProps = {
   content: string
