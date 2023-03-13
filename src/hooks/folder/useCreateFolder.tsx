@@ -35,6 +35,7 @@ export const useCreateFolder = () => {
       return
     }
     createFolder(name)
+    resetState()
   }
 
   return {
